@@ -2,9 +2,21 @@
 
 > Market size: $7.84B (2025) → $52.6B projected (2030) at 46.3% CAGR
 
+When you give an agent a goal — "book the cheapest flight to Tokyo" or "find me three enterprise leads and draft cold emails" — it needs to touch the real world. That means infrastructure across five layers:
+
+| Layer | Question | What it covers |
+|-------|----------|----------------|
+| **Eyes** — Perceive | Can it find what it needs? | Web browsing, search APIs, crawlers, computer use |
+| **Brain** — Remember | Will it remember what it learned? | Memory, context persistence, vector databases |
+| **Hands** — Act | Can it actually do things? | Code execution, communication, file storage, integrations, workflows |
+| **Wallet** — Pay | Can it spend money safely? | Payments, virtual cards, approval flows |
+| **Leash** — Trust | How do you keep it from going rogue? | Auth, guardrails, observability, human-in-the-loop |
+
 ---
 
-## Browser / Web Access
+## Eyes — Perceive
+
+### Browser / Web Access
 
 | Tool | What It Does | Integration | Popularity | Pricing Model |
 |------|-------------|-------------|------------|---------------|
@@ -17,9 +29,96 @@
 | [Firecrawl](https://www.firecrawl.dev/) | Managed URL-to-Markdown/JSON extraction API | REST API, cloud SaaS | Widely used in agent pipelines | SaaS |
 | [Apify](https://apify.com/) | Platform with 2,000+ ready-made scraping actors | Marketplace of pre-built scrapers | Established platform | SaaS + marketplace |
 
+### Computer Use / Desktop Automation
+
+| Tool | What It Does | Integration | Status |
+|------|-------------|-------------|--------|
+| [Anthropic Computer Use](https://docs.anthropic.com/en/docs/computer-use) | Claude sees screens, clicks, types like a human | API — screenshots + UI interaction | Beta, SOTA on OSWorld benchmark |
+| [OpenAI Operator (CUA)](https://openai.com/operator) | GPT-4o-based browser automation agent | Managed virtual browser environment | Research preview |
+| [Google Project Mariner](https://deepmind.google/) | Browser automation agent from DeepMind | Research preview | Research preview |
+
+### Search APIs
+
+| Tool | What It Does | Best For | Key Stat | Pricing Model |
+|------|-------------|---------|---------|---------------|
+| [Tavily](https://tavily.com/) | AI-optimized search with content extraction | Quality | 93.3% accuracy (SimpleQA), 800K+ devs | Freemium |
+| [Exa](https://exa.ai/) | Neural/semantic embeddings search | Deep research | Concept-based, sub-350ms latency | Usage-based |
+| [Perplexity Sonar](https://docs.perplexity.ai/) | Search + LLM synthesis with citations | Speed | Returns synthesized answers | Usage-based |
+| [Serper](https://serper.dev/) | Raw Google SERPs via API | Volume / cost | ~2s latency, cheapest at scale | Usage-based |
+
 ---
 
-## Payments / Financial
+## Brain — Remember
+
+### Memory / State
+
+| Tool | What It Does | Integration | Key Stat | Pricing Model |
+|------|-------------|-------------|---------|---------------|
+| [Mem0](https://mem0.ai/) | Graph-based agent memory platform | Managed + self-hosted, API | 26% accuracy boost, 90%+ token savings | Freemium |
+| [Zep (Graphiti)](https://www.getzep.com/) | Enterprise memory with temporal reasoning | Three-tier knowledge graph | Tracks how facts change over time | Enterprise |
+| [LangMem](https://github.com/langchain-ai/langmem) | Memory integrated with LangGraph | Tool calls within LangGraph workflows | Tight LangGraph integration | Open source |
+
+### Vector Databases / RAG
+
+| Tool | What It Does | Differentiator |
+|------|-------------|----------------|
+| [Pinecone](https://www.pinecone.io/) | Managed cloud-native vector DB | Hybrid search + serverless scaling |
+| [Weaviate](https://weaviate.io/) | AI-native DB with built-in vectorization | Multimodal support |
+| [PostgreSQL + pgvector](https://github.com/pgvector/pgvector) | Vector search extension for Postgres | Dominant choice for GenAI in 2025-2026 |
+| [Milvus](https://milvus.io/) | Open-source high-performance vector DB | Scalable, open source |
+
+---
+
+## Hands — Act
+
+### Code Execution Sandboxes
+
+| Tool | What It Does | Integration | Differentiator | Pricing Model |
+|------|-------------|-------------|----------------|---------------|
+| [E2B](https://e2b.dev/) | Sandboxed code execution via Firecracker microVMs | API, ~150ms cold start | Hardware-level isolation, open source | Freemium |
+| [Daytona](https://www.daytona.io/) | Stateful sandboxed workspaces for agents | Container-based, 27-90ms cold start | Persistent state across sessions | SaaS |
+| [Modal](https://modal.com/) | Serverless compute for ML/AI workloads | Python-first, gVisor containers, GPU support | Best for GPU + ML workloads | Usage-based |
+
+### Communication / Messaging
+
+| Tool | What It Does | Integration |
+|------|-------------|-------------|
+| [Slack (Agentforce)](https://slack.com/) | Salesforce AI agents inside Slack | Native Slack integration with Salesforce data |
+| Gmail MCP | Read/send email, manage labels | MCP server |
+| Slack MCP | Read/send messages, manage channels | MCP server |
+| Discord MCP | Bot interactions via MCP | MCP server |
+| [Resend](https://resend.com/) / [SendGrid](https://sendgrid.com/) | Email APIs increasingly used by agents | REST API / function calling |
+
+### File Storage
+
+| Tool | What It Does | Integration |
+|------|-------------|-------------|
+| [Fast.io](https://fast.io/) | Agent-specific cloud storage — sign up, upload, manage permissions | API, purpose-built for agent workflows |
+| [Poly](https://poly.ai/) | Cloud file storage with AI search (YC-backed) | Cloud-hosted |
+| S3 / GCS / Azure Blob | Standard object storage | API / MCP servers |
+
+### Integration Platforms
+
+| Tool | What It Does | Key Stat |
+|------|-------------|---------|
+| [Composio](https://composio.dev/) | Managed auth, pre-built tools, execution controls | 27K GitHub stars |
+| [Nango](https://nango.dev/) | Open-source OAuth for 700+ APIs | Hundreds of agent companies |
+| [Arcade](https://arcade.dev/) | Agent tool calling with MCP + security/governance | Partnered with Lithic |
+| [Pipedream](https://pipedream.com/) | Workflow automation (acquired by Workday Nov 2025) | Enterprise stack |
+
+### Workflow / Durable Execution
+
+| Tool | What It Does | Differentiator |
+|------|-------------|----------------|
+| [Temporal](https://temporal.io/) | Open-source workflow orchestration | 99.99% SLA, multi-region, created by ex-Uber engineers |
+| [Inngest](https://www.inngest.com/) | Durable functions replacing queues/state management | Developer-friendly |
+| [Trigger.dev](https://trigger.dev/) | Background jobs with tool calling, retries, human-in-the-loop | Built for AI agent workloads |
+
+---
+
+## Wallet — Pay
+
+### Payments / Financial
 
 | Tool | What It Does | Integration | Popularity | Pricing Model |
 |------|-------------|-------------|------------|---------------|
@@ -31,48 +130,9 @@
 
 ---
 
-## Code Execution Sandboxes
+## Leash — Trust
 
-| Tool | What It Does | Integration | Differentiator | Pricing Model |
-|------|-------------|-------------|----------------|---------------|
-| [E2B](https://e2b.dev/) | Sandboxed code execution via Firecracker microVMs | API, ~150ms cold start | Hardware-level isolation, open source | Freemium |
-| [Daytona](https://www.daytona.io/) | Stateful sandboxed workspaces for agents | Container-based, 27-90ms cold start | Persistent state across sessions | SaaS |
-| [Modal](https://modal.com/) | Serverless compute for ML/AI workloads | Python-first, gVisor containers, GPU support | Best for GPU + ML workloads | Usage-based |
-
----
-
-## Computer Use / Desktop Automation
-
-| Tool | What It Does | Integration | Status |
-|------|-------------|-------------|--------|
-| [Anthropic Computer Use](https://docs.anthropic.com/en/docs/computer-use) | Claude sees screens, clicks, types like a human | API — screenshots + UI interaction | Beta, SOTA on OSWorld benchmark |
-| [OpenAI Operator (CUA)](https://openai.com/operator) | GPT-4o-based browser automation agent | Managed virtual browser environment | Research preview |
-| [Google Project Mariner](https://deepmind.google/) | Browser automation agent from DeepMind | Research preview | Research preview |
-
----
-
-## Search APIs
-
-| Tool | What It Does | Best For | Key Stat | Pricing Model |
-|------|-------------|---------|---------|---------------|
-| [Tavily](https://tavily.com/) | AI-optimized search with content extraction | Quality | 93.3% accuracy (SimpleQA), 800K+ devs | Freemium |
-| [Exa](https://exa.ai/) | Neural/semantic embeddings search | Deep research | Concept-based, sub-350ms latency | Usage-based |
-| [Perplexity Sonar](https://docs.perplexity.ai/) | Search + LLM synthesis with citations | Speed | Returns synthesized answers | Usage-based |
-| [Serper](https://serper.dev/) | Raw Google SERPs via API | Volume / cost | ~2s latency, cheapest at scale | Usage-based |
-
----
-
-## Memory / State
-
-| Tool | What It Does | Integration | Key Stat | Pricing Model |
-|------|-------------|-------------|---------|---------------|
-| [Mem0](https://mem0.ai/) | Graph-based agent memory platform | Managed + self-hosted, API | 26% accuracy boost, 90%+ token savings | Freemium |
-| [Zep (Graphiti)](https://www.getzep.com/) | Enterprise memory with temporal reasoning | Three-tier knowledge graph | Tracks how facts change over time | Enterprise |
-| [LangMem](https://github.com/langchain-ai/langmem) | Memory integrated with LangGraph | Tool calls within LangGraph workflows | Tight LangGraph integration | Open source |
-
----
-
-## Authentication / Identity
+### Authentication / Identity
 
 | Tool | What It Does | Integration | Status |
 |------|-------------|-------------|--------|
@@ -81,44 +141,14 @@
 | [Nango](https://nango.dev/) | Open-source OAuth management for 700+ APIs | Manages full OAuth dance, token storage, refresh | ~12 new integrations/month |
 | [Arcade](https://arcade.dev/) | Agent tool calling with auth/governance | Pre-built tool catalog, SDK, MCP support | Security-focused |
 
----
+### Guardrails / Safety
 
-## Communication / Messaging
+| Tool | What It Does | Key Stat |
+|------|-------------|---------|
+| [NVIDIA NeMo Guardrails](https://github.com/NVIDIA/NeMo-Guardrails) | Content safety, topic control, jailbreak detection | ~0.5s latency, 50% better protection |
+| [Guardrails AI](https://www.guardrailsai.com/) | Validation framework — toxicity, PII scrubbing | Open source, integrates with NeMo |
 
-| Tool | What It Does | Integration |
-|------|-------------|-------------|
-| [Slack (Agentforce)](https://slack.com/) | Salesforce AI agents inside Slack | Native Slack integration with Salesforce data |
-| Gmail MCP | Read/send email, manage labels | MCP server |
-| Slack MCP | Read/send messages, manage channels | MCP server |
-| Discord MCP | Bot interactions via MCP | MCP server |
-| [Resend](https://resend.com/) / [SendGrid](https://sendgrid.com/) | Email APIs increasingly used by agents | REST API / function calling |
-
----
-
-## File Storage
-
-| Tool | What It Does | Integration |
-|------|-------------|-------------|
-| [Fast.io](https://fast.io/) | Agent-specific cloud storage — sign up, upload, manage permissions | API, purpose-built for agent workflows |
-| [Poly](https://poly.ai/) | Cloud file storage with AI search (YC-backed) | Cloud-hosted |
-| S3 / GCS / Azure Blob | Standard object storage | API / MCP servers |
-
----
-
-## Agent Orchestration Frameworks
-
-| Framework | What It Does | Key Stat | Best For |
-|-----------|-------------|---------|---------|
-| [LangGraph](https://www.langchain.com/langgraph) | Stateful multi-step agent workflows | 90M+ monthly downloads, 400 companies | Complex stateful workflows |
-| [CrewAI](https://www.crewai.com/) | Role-based multi-agent collaboration | 44.6K GitHub stars | Fast prototyping, role-based agents |
-| [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) | OpenAI's official agent framework | 19K+ GitHub stars | OpenAI ecosystem |
-| [Anthropic Agent SDK](https://github.com/anthropics/anthropic-sdk-python) | Claude-based agent building | New | Claude ecosystem |
-| [Google ADK](https://github.com/google/adk-python) | Google ecosystem agents | New | Google/Gemini ecosystem |
-| [Smolagents](https://github.com/huggingface/smolagents) | Lightweight open-source agents (HuggingFace) | New | Lightweight / open-source |
-
----
-
-## Observability / Evaluation
+### Observability / Evaluation
 
 | Tool | What It Does | Key Stat | Pricing Model |
 |------|-------------|---------|---------------|
@@ -129,48 +159,20 @@
 
 ---
 
-## Integration Platforms
+## Cross-cutting
 
-| Tool | What It Does | Key Stat |
-|------|-------------|---------|
-| [Composio](https://composio.dev/) | Managed auth, pre-built tools, execution controls | 27K GitHub stars |
-| [Nango](https://nango.dev/) | Open-source OAuth for 700+ APIs | Hundreds of agent companies |
-| [Arcade](https://arcade.dev/) | Agent tool calling with MCP + security/governance | Partnered with Lithic |
-| [Pipedream](https://pipedream.com/) | Workflow automation (acquired by Workday Nov 2025) | Enterprise stack |
+### Agent Orchestration Frameworks
 
----
+| Framework | What It Does | Key Stat | Best For |
+|-----------|-------------|---------|---------|
+| [LangGraph](https://www.langchain.com/langgraph) | Stateful multi-step agent workflows | 90M+ monthly downloads, 400 companies | Complex stateful workflows |
+| [CrewAI](https://www.crewai.com/) | Role-based multi-agent collaboration | 44.6K GitHub stars | Fast prototyping, role-based agents |
+| [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) | OpenAI's official agent framework | 19K+ GitHub stars | OpenAI ecosystem |
+| [Anthropic Agent SDK](https://github.com/anthropics/anthropic-sdk-python) | Claude-based agent building | New | Claude ecosystem |
+| [Google ADK](https://github.com/google/adk-python) | Google ecosystem agents | New | Google/Gemini ecosystem |
+| [Smolagents](https://github.com/huggingface/smolagents) | Lightweight open-source agents (HuggingFace) | New | Lightweight / open-source |
 
-## Guardrails / Safety
-
-| Tool | What It Does | Key Stat |
-|------|-------------|---------|
-| [NVIDIA NeMo Guardrails](https://github.com/NVIDIA/NeMo-Guardrails) | Content safety, topic control, jailbreak detection | ~0.5s latency, 50% better protection |
-| [Guardrails AI](https://www.guardrailsai.com/) | Validation framework — toxicity, PII scrubbing | Open source, integrates with NeMo |
-
----
-
-## Workflow / Durable Execution
-
-| Tool | What It Does | Differentiator |
-|------|-------------|----------------|
-| [Temporal](https://temporal.io/) | Open-source workflow orchestration | 99.99% SLA, multi-region, created by ex-Uber engineers |
-| [Inngest](https://www.inngest.com/) | Durable functions replacing queues/state management | Developer-friendly |
-| [Trigger.dev](https://trigger.dev/) | Background jobs with tool calling, retries, human-in-the-loop | Built for AI agent workloads |
-
----
-
-## Vector Databases / RAG
-
-| Tool | What It Does | Differentiator |
-|------|-------------|----------------|
-| [Pinecone](https://www.pinecone.io/) | Managed cloud-native vector DB | Hybrid search + serverless scaling |
-| [Weaviate](https://weaviate.io/) | AI-native DB with built-in vectorization | Multimodal support |
-| [PostgreSQL + pgvector](https://github.com/pgvector/pgvector) | Vector search extension for Postgres | Dominant choice for GenAI in 2025-2026 |
-| [Milvus](https://milvus.io/) | Open-source high-performance vector DB | Scalable, open source |
-
----
-
-## MCP Ecosystem
+### MCP Ecosystem
 
 > Created by Anthropic (Nov 2024), donated to Linux Foundation (Dec 2025). 97M+ monthly SDK downloads, 10K+ active servers. Supported by Claude, ChatGPT, Cursor, Gemini, VS Code.
 
