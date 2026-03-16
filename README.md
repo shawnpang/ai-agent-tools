@@ -6,9 +6,9 @@ When you give an agent a goal — "book the cheapest flight to Tokyo" or "find m
 
 | Layer | Question | What it covers |
 |-------|----------|----------------|
-| **Eyes** — Perceive | Can it find what it needs? | Web browsing, search APIs, crawlers, computer use |
+| **Eyes** — Perceive | Can it find what it needs? | Web crawlers, search APIs |
 | **Brain** — Remember | Will it remember what it learned? | Memory, context persistence, vector databases |
-| **Hands** — Act | Can it actually do things? | Code execution, communication, file storage, integrations, workflows |
+| **Hands** — Act | Can it actually do things? | Browser automation, computer use, code execution, communication, file storage, integrations, workflows |
 | **Wallet** — Pay | Can it spend money safely? | Payments, virtual cards, approval flows |
 | **Leash** — Trust | How do you keep it from going rogue? | Auth, guardrails, observability, human-in-the-loop |
 
@@ -16,26 +16,13 @@ When you give an agent a goal — "book the cheapest flight to Tokyo" or "find m
 
 ## Eyes — Perceive
 
-### Browser / Web Access
+### Web Crawlers
 
 | Tool | What It Does | Integration | Popularity | Pricing Model |
 |------|-------------|-------------|------------|---------------|
-| [Browser Use](https://browser-use.com/) | Open-source framework for autonomous web browsing | Python SDK on Playwright, model-agnostic | 78K GitHub stars | Open source (MIT) |
-| [Browserbase](https://www.browserbase.com/) | Cloud-hosted browser sessions with anti-detection | API, compatible with Playwright/Puppeteer/Selenium | 50M+ sessions, 1K+ customers | SaaS, $40M Series B |
-| [Stagehand](https://www.stagehand.dev/) | AI-native browser automation SDK (by Browserbase) | TypeScript SDK — `act()`, `extract()`, `observe()` | v3 shipped Feb 2026 | Open source |
-| [Steel](https://github.com/nichochar/steel-browser) | Open-source browser API for agents | Self-hostable browser sandbox | Growing OSS community | Open source |
-| [Playwright MCP](https://github.com/nichochar/playwright-mcp) | Microsoft's MCP server for browser automation | MCP protocol for any MCP-compatible client | First-party Microsoft | Open source |
 | [Crawl4AI](https://github.com/unclecode/crawl4ai) | Web crawler that outputs LLM-ready content | Python, self-hosted | 51K GitHub stars | Open source |
 | [Firecrawl](https://www.firecrawl.dev/) | Managed URL-to-Markdown/JSON extraction API | REST API, cloud SaaS | Widely used in agent pipelines | SaaS |
 | [Apify](https://apify.com/) | Platform with 2,000+ ready-made scraping actors | Marketplace of pre-built scrapers | Established platform | SaaS + marketplace |
-
-### Computer Use / Desktop Automation
-
-| Tool | What It Does | Integration | Status |
-|------|-------------|-------------|--------|
-| [Anthropic Computer Use](https://docs.anthropic.com/en/docs/computer-use) | Claude sees screens, clicks, types like a human | API — screenshots + UI interaction | Beta, SOTA on OSWorld benchmark |
-| [OpenAI Operator (CUA)](https://openai.com/operator) | GPT-4o-based browser automation agent | Managed virtual browser environment | Research preview |
-| [Google Project Mariner](https://deepmind.google/) | Browser automation agent from DeepMind | Research preview | Research preview |
 
 ### Search APIs
 
@@ -71,6 +58,24 @@ When you give an agent a goal — "book the cheapest flight to Tokyo" or "find m
 
 ## Hands — Act
 
+### Browser Automation
+
+| Tool | What It Does | Integration | Popularity | Pricing Model |
+|------|-------------|-------------|------------|---------------|
+| [Browser Use](https://browser-use.com/) | Open-source framework for autonomous web browsing | Python SDK on Playwright, model-agnostic | 78K GitHub stars | Open source (MIT) |
+| [Browserbase](https://www.browserbase.com/) | Cloud-hosted browser sessions with anti-detection | API, compatible with Playwright/Puppeteer/Selenium | 50M+ sessions, 1K+ customers | SaaS, $40M Series B |
+| [Stagehand](https://www.stagehand.dev/) | AI-native browser automation SDK (by Browserbase) | TypeScript SDK — `act()`, `extract()`, `observe()` | v3 shipped Feb 2026 | Open source |
+| [Steel](https://github.com/nichochar/steel-browser) | Open-source browser API for agents | Self-hostable browser sandbox | Growing OSS community | Open source |
+| [Playwright MCP](https://github.com/nichochar/playwright-mcp) | Microsoft's MCP server for browser automation | MCP protocol for any MCP-compatible client | First-party Microsoft | Open source |
+
+### Computer Use / Desktop Automation
+
+| Tool | What It Does | Integration | Status |
+|------|-------------|-------------|--------|
+| [Anthropic Computer Use](https://docs.anthropic.com/en/docs/computer-use) | Claude sees screens, clicks, types like a human | API — screenshots + UI interaction | Beta, SOTA on OSWorld benchmark |
+| [OpenAI Operator (CUA)](https://openai.com/operator) | GPT-4o-based browser automation agent | Managed virtual browser environment | Research preview |
+| [Google Project Mariner](https://deepmind.google/) | Browser automation agent from DeepMind | Research preview | Research preview |
+
 ### Code Execution Sandboxes
 
 | Tool | What It Does | Integration | Differentiator | Pricing Model |
@@ -102,8 +107,6 @@ When you give an agent a goal — "book the cheapest flight to Tokyo" or "find m
 | Tool | What It Does | Key Stat |
 |------|-------------|---------|
 | [Composio](https://composio.dev/) | Managed auth, pre-built tools, execution controls | 27K GitHub stars |
-| [Nango](https://nango.dev/) | Open-source OAuth for 700+ APIs | Hundreds of agent companies |
-| [Arcade](https://arcade.dev/) | Agent tool calling with MCP + security/governance | Partnered with Lithic |
 | [Pipedream](https://pipedream.com/) | Workflow automation (acquired by Workday Nov 2025) | Enterprise stack |
 
 ### Workflow / Durable Execution
