@@ -20,82 +20,20 @@ When you give an agent a goal, it needs to touch the real world. That means infr
 
 ### Web Crawlers
 
-#### [Crawl4AI](https://github.com/unclecode/crawl4ai)
-> Open-source Python crawler that converts web pages into clean, LLM-ready Markdown.
-
-**Story:** Created 2023 by Hossein (unclecode), built "in a few days" out of frustration with paid alternatives. No VC funding — community-driven. Went viral as #1 trending GitHub repo; now 62K+ stars, 50K+ developers.
-
-**Why agents use it:** Runs locally with zero API keys or dependencies. Outputs clean Markdown stripped of boilerplate — optimized for LLM context windows. Supports CSS, XPath, and LLM-based structured extraction. The default choice for cost-sensitive or privacy-sensitive agent stacks.
-
-**Pricing:** Free and open source (MIT). Cloud API in closed beta — pricing TBD. [GitHub](https://github.com/unclecode/crawl4ai)
-
----
-
-#### [Firecrawl](https://www.firecrawl.dev/)
-> API service that scrapes any website and returns LLM-ready Markdown or structured JSON.
-
-**Story:** Founded 2022, Y Combinator-backed. Raised $16.2M total ($14.5M Series A led by Nexus Venture Partners, August 2025). Shopify CEO Tobias Lutke invested. 350K+ users, 43K+ GitHub stars. Customers include OpenAI, Alibaba, PwC, Zapier.
-
-**Why agents use it:** Single API endpoint to get any URL as clean Markdown — handles JS rendering, CAPTCHAs, and anti-bot measures that agents can't handle themselves. Native integrations with LangChain, LlamaIndex, CrewAI, and MCP. Structured extraction mode returns JSON matching agent-specified schemas.
-
-**Pricing:** Free (500 credits/mo) → Hobby $16/mo (3K credits) → Standard $83/mo (100K) → Growth $333/mo (500K) → Scale $599/mo (1M). [Pricing](https://www.firecrawl.dev/pricing)
-
----
-
-#### [Apify](https://apify.com/)
-> Full-stack scraping platform with 5,000+ pre-built scrapers ("Actors") for specific sites.
-
-**Story:** Founded 2015 in Prague by Jan Curn and Jakub Balada. YC 2015. Raised ~$3M total — largely bootstrapped to $13.3M revenue (2024). 10+ years in operation. Jan Curn named EY 2024 Entrepreneur of the Year for Prague.
-
-**Why agents use it:** Largest marketplace of pre-built scrapers — agents call purpose-built Actors for Twitter, LinkedIn, Google Maps, Amazon, etc. without writing scraping code. Native integrations with LangChain, LangGraph, CrewAI, OpenAI function calling, and MCP. Most mature platform in the space.
-
-**Pricing:** Free ($5/mo credits) → Starter $49/mo → Scale $499/mo → Business $999/mo → Enterprise custom. Usage-based on top of plan fees. [Pricing](https://apify.com/pricing)
-
----
+| Tool | Description | Story | Why Agents Use It | Pricing |
+|------|-------------|-------|-------------------|---------|
+| [Crawl4AI](https://github.com/unclecode/crawl4ai) | Open-source Python crawler that converts web pages into clean, LLM-ready Markdown. | Created 2023 by Hossein (unclecode), built "in a few days" out of frustration with paid alternatives. No VC funding — community-driven. Went viral as #1 trending GitHub repo; now 62K+ stars, 50K+ developers. | Runs locally with zero API keys or dependencies. Outputs clean Markdown stripped of boilerplate — optimized for LLM context windows. Supports CSS, XPath, and LLM-based structured extraction. The default choice for cost-sensitive or privacy-sensitive agent stacks. | Free and open source (MIT). Cloud API in closed beta — pricing TBD. [GitHub](https://github.com/unclecode/crawl4ai) |
+| [Firecrawl](https://www.firecrawl.dev/) | API service that scrapes any website and returns LLM-ready Markdown or structured JSON. | Founded 2022, Y Combinator-backed. Raised $16.2M total ($14.5M Series A led by Nexus Venture Partners, August 2025). Shopify CEO Tobias Lutke invested. 350K+ users, 43K+ GitHub stars. Customers include OpenAI, Alibaba, PwC, Zapier. | Single API endpoint to get any URL as clean Markdown — handles JS rendering, CAPTCHAs, and anti-bot measures that agents can't handle themselves. Native integrations with LangChain, LlamaIndex, CrewAI, and MCP. Structured extraction mode returns JSON matching agent-specified schemas. | Free (500 credits/mo) → Hobby $16/mo (3K credits) → Standard $83/mo (100K) → Growth $333/mo (500K) → Scale $599/mo (1M). [Pricing](https://www.firecrawl.dev/pricing) |
+| [Apify](https://apify.com/) | Full-stack scraping platform with 5,000+ pre-built scrapers ("Actors") for specific sites. | Founded 2015 in Prague by Jan Curn and Jakub Balada. YC 2015. Raised ~$3M total — largely bootstrapped to $13.3M revenue (2024). 10+ years in operation. Jan Curn named EY 2024 Entrepreneur of the Year for Prague. | Largest marketplace of pre-built scrapers — agents call purpose-built Actors for Twitter, LinkedIn, Google Maps, Amazon, etc. without writing scraping code. Native integrations with LangChain, LangGraph, CrewAI, OpenAI function calling, and MCP. Most mature platform in the space. | Free ($5/mo credits) → Starter $49/mo → Scale $499/mo → Business $999/mo → Enterprise custom. Usage-based on top of plan fees. [Pricing](https://apify.com/pricing) |
 
 ### Search APIs
 
-#### [Tavily](https://tavily.com/)
-> Search API built specifically for AI agents — returns pre-processed, relevant results optimized for LLM consumption.
-
-**Story:** Founded 2023 by Rotem Weiss, Assaf Elovic, and Yuval Rozio. Originated from GPT Researcher (20K+ GitHub stars). Raised $25M total ($20M Series A led by Insight Partners). 1M+ monthly users. Acquired by Nebius (AI infrastructure) in February 2026.
-
-**Why agents use it:** Designed from the ground up for agents, not humans — returns clean, summarized results with relevance scores rather than blue links. Default search tool in LangChain and many agent frameworks. Single API call returns answer + sources — no need for agents to crawl/parse individual pages.
-
-**Pricing:** Free (1K credits/mo) → Pay-as-you-go $0.008/credit → Project from $30/mo (4K+ credits) → Enterprise custom. Free for students. [Pricing](https://tavily.com/pricing)
-
----
-
-#### [Exa](https://exa.ai/)
-> Neural/semantic search engine — finds web pages by meaning using embeddings, not keyword matching.
-
-**Story:** Founded 2021 by Will Bryk, Dan McArdle, and Jeffrey Wang. YC alumni. Raised $111M total ($85M Series B led by Benchmark at $700M valuation, September 2025). Revenue grew ~1,010% YoY to ~$10M ARR.
-
-**Why agents use it:** Semantic search understands what agents mean, not just keywords — "battery storage challenges" and "difficulties with renewable power accumulation" return the same results. Returns full page contents alongside search, so agents don't need a separate scraping step. "Auto" mode blends neural and keyword search with a reranker.
-
-**Pricing:** Free (1K req/mo) → Search $7/1K requests → Agentic Search $12/1K → Contents $1/1K pages → Answer $5/1K. Startup/education grants: $1K free credits. [Pricing](https://exa.ai/pricing)
-
----
-
-#### [Perplexity Sonar](https://docs.perplexity.ai/)
-> API access to Perplexity's search-augmented LLMs — combines web search with reasoning, returns grounded answers with citations.
-
-**Story:** Perplexity AI founded August 2022 by Aravind Srinivas, Denis Yarats, Johnny Ho, Andy Konwinski. Raised ~$1.5B total; valued at ~$20B. Investors include Accel, SoftBank, NVIDIA, Jeff Bezos. 100M+ consumer users. Sonar is the developer/agent-facing product.
-
-**Why agents use it:** Combines search + reasoning in a single API call — agents get a grounded answer with citations, not raw results to parse. Multiple model tiers (Sonar, Sonar Pro, Sonar Reasoning Pro, Sonar Deep Research) let agents choose speed vs. depth.
-
-**Pricing:** Pay-as-you-go per token. Sonar: $1/$1 per M tokens. Sonar Pro: $3/$15. Per-request fees: $5-$14/1K requests depending on model and context. [Pricing](https://docs.perplexity.ai/docs/getting-started/pricing)
-
----
-
-#### [Serper](https://serper.dev/)
-> Lightweight, fast Google SERP API — structured JSON results in 1-2 seconds at very low cost.
-
-**Story:** Independent, bootstrapped product. Limited public info about founders. Gained popularity through LangChain integration and use as the default Google search tool in CrewAI.
-
-**Why agents use it:** Extremely fast (1-2s) and cheap ($0.30-$1.00/1K queries) — ideal for agents making many search calls. Returns structured JSON of Google results (10+ search types). Simple credit-based model with no subscriptions. Generous free tier (2,500 queries).
-
-**Pricing:** Free (2,500 queries) → Starter $50/50K → Standard $375/500K → Scale $1,250/2.5M → Ultimate $3,750/12.5M. One-time credit purchases, valid 6 months. [Pricing](https://serper.dev/)
+| Tool | Description | Story | Why Agents Use It | Pricing |
+|------|-------------|-------|-------------------|---------|
+| [Tavily](https://tavily.com/) | Search API built specifically for AI agents — returns pre-processed, relevant results optimized for LLM consumption. | Founded 2023 by Rotem Weiss, Assaf Elovic, and Yuval Rozio. Originated from GPT Researcher (20K+ GitHub stars). Raised $25M total ($20M Series A led by Insight Partners). 1M+ monthly users. Acquired by Nebius (AI infrastructure) in February 2026. | Designed from the ground up for agents, not humans — returns clean, summarized results with relevance scores rather than blue links. Default search tool in LangChain and many agent frameworks. Single API call returns answer + sources — no need for agents to crawl/parse individual pages. | Free (1K credits/mo) → Pay-as-you-go $0.008/credit → Project from $30/mo (4K+ credits) → Enterprise custom. Free for students. [Pricing](https://tavily.com/pricing) |
+| [Exa](https://exa.ai/) | Neural/semantic search engine — finds web pages by meaning using embeddings, not keyword matching. | Founded 2021 by Will Bryk, Dan McArdle, and Jeffrey Wang. YC alumni. Raised $111M total ($85M Series B led by Benchmark at $700M valuation, September 2025). Revenue grew ~1,010% YoY to ~$10M ARR. | Semantic search understands what agents mean, not just keywords — "battery storage challenges" and "difficulties with renewable power accumulation" return the same results. Returns full page contents alongside search, so agents don't need a separate scraping step. "Auto" mode blends neural and keyword search with a reranker. | Free (1K req/mo) → Search $7/1K requests → Agentic Search $12/1K → Contents $1/1K pages → Answer $5/1K. Startup/education grants: $1K free credits. [Pricing](https://exa.ai/pricing) |
+| [Perplexity Sonar](https://docs.perplexity.ai/) | API access to Perplexity's search-augmented LLMs — combines web search with reasoning, returns grounded answers with citations. | Perplexity AI founded August 2022 by Aravind Srinivas, Denis Yarats, Johnny Ho, Andy Konwinski. Raised ~$1.5B total; valued at ~$20B. Investors include Accel, SoftBank, NVIDIA, Jeff Bezos. 100M+ consumer users. Sonar is the developer/agent-facing product. | Combines search + reasoning in a single API call — agents get a grounded answer with citations, not raw results to parse. Multiple model tiers (Sonar, Sonar Pro, Sonar Reasoning Pro, Sonar Deep Research) let agents choose speed vs. depth. | Pay-as-you-go per token. Sonar: $1/$1 per M tokens. Sonar Pro: $3/$15. Per-request fees: $5-$14/1K requests depending on model and context. [Pricing](https://docs.perplexity.ai/docs/getting-started/pricing) |
+| [Serper](https://serper.dev/) | Lightweight, fast Google SERP API — structured JSON results in 1-2 seconds at very low cost. | Independent, bootstrapped product. Limited public info about founders. Gained popularity through LangChain integration and use as the default Google search tool in CrewAI. | Extremely fast (1-2s) and cheap ($0.30-$1.00/1K queries) — ideal for agents making many search calls. Returns structured JSON of Google results (10+ search types). Simple credit-based model with no subscriptions. Generous free tier (2,500 queries). | Free (2,500 queries) → Starter $50/50K → Standard $375/500K → Scale $1,250/2.5M → Ultimate $3,750/12.5M. One-time credit purchases, valid 6 months. [Pricing](https://serper.dev/) |
 
 ---
 
@@ -105,82 +43,20 @@ When you give an agent a goal, it needs to touch the real world. That means infr
 
 ### Memory / State
 
-#### [Mem0](https://mem0.ai/)
-> Universal, self-improving memory layer — stores, retrieves, and continuously updates memories across sessions.
-
-**Story:** Founded January 2024 by Taranjeet Singh (ex-Khatabook) and Deshraj (ex-Tesla Autopilot). Raised $24M total ($20M Series A led by Basis Set Ventures, October 2025). YC-backed. 41K GitHub stars, 14M+ downloads. API calls grew from 35M to 186M in two quarters. Selected as exclusive memory provider for AWS's Agent SDK.
-
-**Why agents use it:** Dedicated memory abstraction layer agents lack natively — extracts, consolidates, and retrieves memories across sessions without managing storage logic. Graph memory enables relationship-aware retrieval. Simple API: agents call it to remember and recall.
-
-**Pricing:** Free (10K memories, 1K retrievals/mo) → Starter $19/mo (50K memories) → Pro $249/mo (unlimited memories, graph memory) → Enterprise custom. [Pricing](https://mem0.ai/pricing)
-
----
-
-#### [Zep (Graphiti)](https://www.getzep.com/)
-> Agent memory platform using a temporally-aware knowledge graph — tracks how facts change over time.
-
-**Story:** Founded 2023 by Daniel Chalef (second-time founder, ex-KnowledgeTree). YC W24. Raised $3.3M from Engineering Capital, Step Function, and angels from Vercel, Google, etc. Graphiti open-source hit 20K GitHub stars in under 12 months. SOC 2 Type 2 and HIPAA certified.
-
-**Why agents use it:** Doesn't just store flat memories — builds a temporal knowledge graph tracking what was true *when*. Agents can reason about contradictions, handle changed facts, and do multi-hop relationship queries that flat memory stores cannot. Sub-200ms retrieval.
-
-**Pricing:** Free (1K credits/mo) → Flex $25/mo (20K credits) → Flex Plus $475/mo (300K credits) → Enterprise custom. [Pricing](https://www.getzep.com/pricing)
-
----
-
-#### [LangMem](https://github.com/langchain-ai/langmem)
-> Open-source SDK from LangChain for long-term agent memory — learns facts and procedures across sessions.
-
-**Story:** Created January 2025 by LangChain AI (Harrison Chase and Ankush Gola). Parent company raised ~$170M total, valued at $1.25B. 1.3K GitHub stars. Part of LangChain's "Deep Agents" runtime (March 2026).
-
-**Why agents use it:** Unique *procedural memory* — doesn't just remember facts, it learns *how to behave* by refining the agent's own prompt based on past interactions. Three memory patterns: hot-path tools, background processing, and semantic/episodic/procedural types modeled after human cognition.
-
-**Pricing:** Free and open source (MIT). If used with LangSmith for storage/observability, LangSmith pricing applies. [GitHub](https://github.com/langchain-ai/langmem)
-
----
+| Tool | Description | Story | Why Agents Use It | Pricing |
+|------|-------------|-------|-------------------|---------|
+| [Mem0](https://mem0.ai/) | Universal, self-improving memory layer — stores, retrieves, and continuously updates memories across sessions. | Founded January 2024 by Taranjeet Singh (ex-Khatabook) and Deshraj (ex-Tesla Autopilot). Raised $24M total ($20M Series A led by Basis Set Ventures, October 2025). YC-backed. 41K GitHub stars, 14M+ downloads. API calls grew from 35M to 186M in two quarters. Selected as exclusive memory provider for AWS's Agent SDK. | Dedicated memory abstraction layer agents lack natively — extracts, consolidates, and retrieves memories across sessions without managing storage logic. Graph memory enables relationship-aware retrieval. Simple API: agents call it to remember and recall. | Free (10K memories, 1K retrievals/mo) → Starter $19/mo (50K memories) → Pro $249/mo (unlimited memories, graph memory) → Enterprise custom. [Pricing](https://mem0.ai/pricing) |
+| [Zep (Graphiti)](https://www.getzep.com/) | Agent memory platform using a temporally-aware knowledge graph — tracks how facts change over time. | Founded 2023 by Daniel Chalef (second-time founder, ex-KnowledgeTree). YC W24. Raised $3.3M from Engineering Capital, Step Function, and angels from Vercel, Google, etc. Graphiti open-source hit 20K GitHub stars in under 12 months. SOC 2 Type 2 and HIPAA certified. | Doesn't just store flat memories — builds a temporal knowledge graph tracking what was true *when*. Agents can reason about contradictions, handle changed facts, and do multi-hop relationship queries that flat memory stores cannot. Sub-200ms retrieval. | Free (1K credits/mo) → Flex $25/mo (20K credits) → Flex Plus $475/mo (300K credits) → Enterprise custom. [Pricing](https://www.getzep.com/pricing) |
+| [LangMem](https://github.com/langchain-ai/langmem) | Open-source SDK from LangChain for long-term agent memory — learns facts and procedures across sessions. | Created January 2025 by LangChain AI (Harrison Chase and Ankush Gola). Parent company raised ~$170M total, valued at $1.25B. 1.3K GitHub stars. Part of LangChain's "Deep Agents" runtime (March 2026). | Unique *procedural memory* — doesn't just remember facts, it learns *how to behave* by refining the agent's own prompt based on past interactions. Three memory patterns: hot-path tools, background processing, and semantic/episodic/procedural types modeled after human cognition. | Free and open source (MIT). If used with LangSmith for storage/observability, LangSmith pricing applies. [GitHub](https://github.com/langchain-ai/langmem) |
 
 ### Vector Databases / RAG
 
-#### [Pinecone](https://www.pinecone.io/)
-> Fully managed, cloud-native vector database for semantic search and RAG at scale.
-
-**Story:** Founded 2019 by Edo Liberty (Ph.D. Yale, ex-Director of Research at AWS, ex-Head of Amazon AI Labs). Raised $138M total; Series B led by Andreessen Horowitz at $750M valuation. 4,000+ customers, $14M ARR. Named to Fast Company's Most Innovative Companies 2025.
-
-**Why agents use it:** Zero infrastructure management — send vectors, get sub-second search. Serverless architecture auto-scales for unpredictable agent query patterns. Strong ecosystem integrations (LangChain, LlamaIndex). Metadata filtering lets agents scope searches to specific contexts.
-
-**Pricing:** Free (2GB, 2M writes/mo) → Standard $50/mo ($0.33/GB/mo) → Enterprise $500/mo (99.95% SLA, HIPAA) → BYOC custom. [Pricing](https://www.pinecone.io/pricing/)
-
----
-
-#### [Weaviate](https://weaviate.io/)
-> Open-source, AI-native vector database with hybrid search (vector + keyword/BM25) and built-in vectorization.
-
-**Story:** Founded 2019 in Amsterdam by Bob van Luijt and Etienne Dilocker (originally as SeMI Technologies). Raised $67.7M total; Series B led by Index Ventures. 14K+ GitHub stars, 2,000+ companies in production. $12.3M ARR.
-
-**Why agents use it:** Hybrid search (vector + keyword) gives agents more flexible retrieval than pure vector DBs. Built-in vectorizer modules mean agents can send raw text and Weaviate handles embedding. Multi-tenancy support for agents serving many users with isolated data. Recently launched "Query Agent" for natural language queries.
-
-**Pricing:** Free trial (14 days) → Flex from $45/mo (pay-as-you-go) → Premium from $400/mo (99.95% SLA) → Self-hosted free (OSS). [Pricing](https://weaviate.io/pricing)
-
----
-
-#### [PostgreSQL + pgvector](https://github.com/pgvector/pgvector)
-> Open-source PostgreSQL extension adding vector similarity search directly to Postgres.
-
-**Story:** Created April 2021 by Andrew Kane, a prolific open-source contributor. Community-driven, no VC funding. Added HNSW indexing in v0.5.0 (2023) with 150x performance improvements. Supported natively by all major Postgres clouds (Supabase, Neon, AWS RDS, Google Cloud SQL, Azure).
-
-**Why agents use it:** Consolidation — teams already using Postgres add vector search without a new database. Same DB holds structured data, user data, and embeddings, enabling hybrid queries in a single SQL call. No vendor lock-in, no additional costs. The "good enough" choice for most agent stacks.
-
-**Pricing:** Free and open source. Cost = your Postgres hosting (Supabase free tier / $25/mo Pro, Neon free / $19/mo, or standard RDS/Cloud SQL pricing). [GitHub](https://github.com/pgvector/pgvector)
-
----
-
-#### [Milvus](https://milvus.io/) / [Zilliz Cloud](https://zilliz.com/)
-> Open-source vector database built for billion-scale similarity search. Zilliz Cloud is the managed version.
-
-**Story:** Founded 2017 by Charles Xie. Raised $113M total ($60M Series B extension, August 2022). Backed by Aramco Prosperity7, Temasek, Hillhouse Capital. Open-sourced 2019. Graduated from Linux Foundation LF AI & Data (2021). 40K+ GitHub stars. 10,000+ enterprise teams including NVIDIA, Salesforce, eBay, Airbnb.
-
-**Why agents use it:** Built for scale — handles billions of vectors with distributed architecture. GPU-accelerated indexing for high-throughput, low-latency search. Supports multiple vector types in a single collection (dense + sparse for hybrid search). Zilliz serverless scales to zero for cost-sensitive agent deployments.
-
-**Pricing:** Free (5GB, 2.5M vCUs/mo) → Standard from $0 serverless or $99/GB/mo dedicated → Enterprise from $155/mo (99.95% SLA) → BYOC custom. Self-hosted Milvus is free (Apache 2.0). [Pricing](https://zilliz.com/pricing)
+| Tool | Description | Story | Why Agents Use It | Pricing |
+|------|-------------|-------|-------------------|---------|
+| [Pinecone](https://www.pinecone.io/) | Fully managed, cloud-native vector database for semantic search and RAG at scale. | Founded 2019 by Edo Liberty (Ph.D. Yale, ex-Director of Research at AWS, ex-Head of Amazon AI Labs). Raised $138M total; Series B led by Andreessen Horowitz at $750M valuation. 4,000+ customers, $14M ARR. Named to Fast Company's Most Innovative Companies 2025. | Zero infrastructure management — send vectors, get sub-second search. Serverless architecture auto-scales for unpredictable agent query patterns. Strong ecosystem integrations (LangChain, LlamaIndex). Metadata filtering lets agents scope searches to specific contexts. | Free (2GB, 2M writes/mo) → Standard $50/mo ($0.33/GB/mo) → Enterprise $500/mo (99.95% SLA, HIPAA) → BYOC custom. [Pricing](https://www.pinecone.io/pricing/) |
+| [Weaviate](https://weaviate.io/) | Open-source, AI-native vector database with hybrid search (vector + keyword/BM25) and built-in vectorization. | Founded 2019 in Amsterdam by Bob van Luijt and Etienne Dilocker (originally as SeMI Technologies). Raised $67.7M total; Series B led by Index Ventures. 14K+ GitHub stars, 2,000+ companies in production. $12.3M ARR. | Hybrid search (vector + keyword) gives agents more flexible retrieval than pure vector DBs. Built-in vectorizer modules mean agents can send raw text and Weaviate handles embedding. Multi-tenancy support for agents serving many users with isolated data. Recently launched "Query Agent" for natural language queries. | Free trial (14 days) → Flex from $45/mo (pay-as-you-go) → Premium from $400/mo (99.95% SLA) → Self-hosted free (OSS). [Pricing](https://weaviate.io/pricing) |
+| [PostgreSQL + pgvector](https://github.com/pgvector/pgvector) | Open-source PostgreSQL extension adding vector similarity search directly to Postgres. | Created April 2021 by Andrew Kane, a prolific open-source contributor. Community-driven, no VC funding. Added HNSW indexing in v0.5.0 (2023) with 150x performance improvements. Supported natively by all major Postgres clouds (Supabase, Neon, AWS RDS, Google Cloud SQL, Azure). | Consolidation — teams already using Postgres add vector search without a new database. Same DB holds structured data, user data, and embeddings, enabling hybrid queries in a single SQL call. No vendor lock-in, no additional costs. The "good enough" choice for most agent stacks. | Free and open source. Cost = your Postgres hosting (Supabase free tier / $25/mo Pro, Neon free / $19/mo, or standard RDS/Cloud SQL pricing). [GitHub](https://github.com/pgvector/pgvector) |
+| [Milvus](https://milvus.io/) / [Zilliz Cloud](https://zilliz.com/) | Open-source vector database built for billion-scale similarity search. Zilliz Cloud is the managed version. | Founded 2017 by Charles Xie. Raised $113M total ($60M Series B extension, August 2022). Backed by Aramco Prosperity7, Temasek, Hillhouse Capital. Open-sourced 2019. Graduated from Linux Foundation LF AI & Data (2021). 40K+ GitHub stars. 10,000+ enterprise teams including NVIDIA, Salesforce, eBay, Airbnb. | Built for scale — handles billions of vectors with distributed architecture. GPU-accelerated indexing for high-throughput, low-latency search. Supports multiple vector types in a single collection (dense + sparse for hybrid search). Zilliz serverless scales to zero for cost-sensitive agent deployments. | Free (5GB, 2.5M vCUs/mo) → Standard from $0 serverless or $99/GB/mo dedicated → Enterprise from $155/mo (99.95% SLA) → BYOC custom. Self-hosted Milvus is free (Apache 2.0). [Pricing](https://zilliz.com/pricing) |
 
 ---
 
@@ -190,253 +66,60 @@ When you give an agent a goal, it needs to touch the real world. That means infr
 
 ### Browser Automation
 
-#### [Browser Use](https://browser-use.com/)
-> Open-source Python framework for autonomous web browsing — converts pages to structured text for LLM consumption.
-
-**Story:** Started as a weekend project at ETH Zurich, turned into a $17M-funded startup (YC W25, Felicis-led). 78K+ GitHub stars. Cloud platform launched for managed browser sessions.
-
-**Why agents use it:** Model-agnostic Python SDK on Playwright — agents can browse, click, fill forms, and extract data. Converts web pages to structured text optimized for LLM context windows. Largest open-source community in the browser automation space.
-
-**Pricing:** Open source (MIT). Cloud: from $0.06/hr per browser session. [browser-use.com](https://browser-use.com/)
-
----
-
-#### [Browserbase](https://www.browserbase.com/)
-> Cloud-hosted browser sessions with anti-detection — managed infrastructure for AI browser automation at scale.
-
-**Story:** Founded by Paul Klein. Raised $67.5M total at $300M valuation ($40M Series B). 50M+ sessions served, 1,000+ companies. The dominant infrastructure player for AI browser automation.
-
-**Why agents use it:** Managed cloud browsers — agents don't run their own browser infrastructure. Anti-detection, session recording, and stealth mode for reliable automation. Compatible with Playwright, Puppeteer, and Selenium. Built Stagehand (below) as the AI-native SDK on top.
-
-**Pricing:** Free (1 hr/mo) → Startup $99/mo (500 hrs) → Scale custom. [Pricing](https://www.browserbase.com/pricing)
-
----
-
-#### [Stagehand](https://www.stagehand.dev/)
-> AI-native browser automation SDK by Browserbase — three methods: `act()`, `extract()`, `observe()`.
-
-**Story:** Built by Browserbase as an open-source SDK (MIT). v3 shipped February 2026 — dropped Playwright, built directly on CDP, 44% faster. Designed for how LLMs reason about web interaction.
-
-**Why agents use it:** Three-method API maps directly to how agents think: `act()` for clicking/typing, `extract()` for pulling data, `observe()` for understanding page state. Hybrid natural-language + code automation. Free itself — you pay for Browserbase cloud + LLM API costs.
-
-**Pricing:** Free and open source (MIT). Requires Browserbase for cloud execution. [stagehand.dev](https://www.stagehand.dev/)
-
----
-
-#### [Steel](https://github.com/steel-dev/steel-browser)
-> Open-source browser API for agents — self-hostable via Docker.
-
-**Story:** Built by Hussien Hussien and Nasr Mohamed. Open source (Apache 2.0). Positioned as the self-hostable alternative to Browserbase. Growing OSS community.
-
-**Why agents use it:** Self-hostable via Docker — full control, no vendor lock-in. Built specifically for agents, not adapted from testing tools. Good option for teams that need browser automation without cloud dependencies.
-
-**Pricing:** Free self-hosted (Apache 2.0). Cloud: Free ($10 credits) → paid plans up to $499/mo. [GitHub](https://github.com/steel-dev/steel-browser)
-
----
-
-#### [Playwright MCP](https://github.com/microsoft/playwright-mcp)
-> Microsoft's MCP server for browser automation — uses accessibility tree instead of screenshots for token efficiency.
-
-**Story:** Built by Microsoft, open source (Apache 2.0). 29K+ GitHub stars. Built into GitHub Copilot. Uses the accessibility tree rather than screenshots, making it extremely token-efficient.
-
-**Why agents use it:** Token-efficient — reads the accessibility tree instead of taking screenshots and sending them to vision models. First-party Microsoft support. Works with any MCP-compatible client. Completely free.
-
-**Pricing:** Free and open source (Apache 2.0). [GitHub](https://github.com/microsoft/playwright-mcp)
-
----
+| Tool | Description | Story | Why Agents Use It | Pricing |
+|------|-------------|-------|-------------------|---------|
+| [Browser Use](https://browser-use.com/) | Open-source Python framework for autonomous web browsing — converts pages to structured text for LLM consumption. | Started as a weekend project at ETH Zurich, turned into a $17M-funded startup (YC W25, Felicis-led). 78K+ GitHub stars. Cloud platform launched for managed browser sessions. | Model-agnostic Python SDK on Playwright — agents can browse, click, fill forms, and extract data. Converts web pages to structured text optimized for LLM context windows. Largest open-source community in the browser automation space. | Open source (MIT). Cloud: from $0.06/hr per browser session. [browser-use.com](https://browser-use.com/) |
+| [Browserbase](https://www.browserbase.com/) | Cloud-hosted browser sessions with anti-detection — managed infrastructure for AI browser automation at scale. | Founded by Paul Klein. Raised $67.5M total at $300M valuation ($40M Series B). 50M+ sessions served, 1,000+ companies. The dominant infrastructure player for AI browser automation. | Managed cloud browsers — agents don't run their own browser infrastructure. Anti-detection, session recording, and stealth mode for reliable automation. Compatible with Playwright, Puppeteer, and Selenium. Built Stagehand (below) as the AI-native SDK on top. | Free (1 hr/mo) → Startup $99/mo (500 hrs) → Scale custom. [Pricing](https://www.browserbase.com/pricing) |
+| [Stagehand](https://www.stagehand.dev/) | AI-native browser automation SDK by Browserbase — three methods: `act()`, `extract()`, `observe()`. | Built by Browserbase as an open-source SDK (MIT). v3 shipped February 2026 — dropped Playwright, built directly on CDP, 44% faster. Designed for how LLMs reason about web interaction. | Three-method API maps directly to how agents think: `act()` for clicking/typing, `extract()` for pulling data, `observe()` for understanding page state. Hybrid natural-language + code automation. Free itself — you pay for Browserbase cloud + LLM API costs. | Free and open source (MIT). Requires Browserbase for cloud execution. [stagehand.dev](https://www.stagehand.dev/) |
+| [Steel](https://github.com/steel-dev/steel-browser) | Open-source browser API for agents — self-hostable via Docker. | Built by Hussien Hussien and Nasr Mohamed. Open source (Apache 2.0). Positioned as the self-hostable alternative to Browserbase. Growing OSS community. | Self-hostable via Docker — full control, no vendor lock-in. Built specifically for agents, not adapted from testing tools. Good option for teams that need browser automation without cloud dependencies. | Free self-hosted (Apache 2.0). Cloud: Free ($10 credits) → paid plans up to $499/mo. [GitHub](https://github.com/steel-dev/steel-browser) |
+| [Playwright MCP](https://github.com/microsoft/playwright-mcp) | Microsoft's MCP server for browser automation — uses accessibility tree instead of screenshots for token efficiency. | Built by Microsoft, open source (Apache 2.0). 29K+ GitHub stars. Built into GitHub Copilot. Uses the accessibility tree rather than screenshots, making it extremely token-efficient. | Token-efficient — reads the accessibility tree instead of taking screenshots and sending them to vision models. First-party Microsoft support. Works with any MCP-compatible client. Completely free. | Free and open source (Apache 2.0). [GitHub](https://github.com/microsoft/playwright-mcp) |
 
 ### Computer Use
 
-#### [Anthropic Computer Use](https://docs.anthropic.com/en/docs/computer-use)
-> Claude sees screens, clicks, types like a human — works on any desktop app, not just browsers.
-
-**Story:** First launched October 2024 with Claude 3.5 Sonnet. Beta API capability. SOTA on OSWorld benchmark. Works on full desktop environments, not just web.
-
-**Why agents use it:** Only option that works on any desktop application (not just browsers). The agent sees the screen as a human would and can interact with any UI element. No special integration needed from the target application.
-
-**Pricing:** No extra charge — standard Claude API token pricing. [Docs](https://docs.anthropic.com/en/docs/computer-use)
-
----
-
-#### [OpenAI Operator (CUA)](https://openai.com/operator)
-> GPT-based browser automation agent — now integrated as "agent mode" in ChatGPT.
-
-**Story:** Launched by OpenAI as Operator, now integrated into ChatGPT as agent mode. Developer API available via computer-use-preview model.
-
-**Why agents use it:** Managed virtual browser environment — no infrastructure to run. Integrated into the ChatGPT ecosystem. Developer API enables programmatic browser automation.
-
-**Pricing:** ChatGPT Plus $20/mo (40 tasks) or Pro $200/mo (400 tasks). API: $2.50/$15.00 per M input/output tokens. [openai.com/operator](https://openai.com/operator)
-
----
-
-#### [Google Project Mariner](https://deepmind.google/)
-> Browser automation agent from DeepMind — handles 10 concurrent tasks.
-
-**Story:** Built by Google DeepMind. 83.5% WebVoyager benchmark score. Handles 10 concurrent tasks. Developer API coming via Gemini API/Vertex AI but not yet priced separately.
-
-**Why agents use it:** High benchmark scores. Concurrent task handling. Deep integration with Google's AI ecosystem. Developer API forthcoming.
-
-**Pricing:** Bundled with Google AI Ultra at $249.99/mo (US only). Developer API pricing TBD. [deepmind.google](https://deepmind.google/)
-
----
+| Tool | Description | Story | Why Agents Use It | Pricing |
+|------|-------------|-------|-------------------|---------|
+| [Anthropic Computer Use](https://docs.anthropic.com/en/docs/computer-use) | Claude sees screens, clicks, types like a human — works on any desktop app, not just browsers. | First launched October 2024 with Claude 3.5 Sonnet. Beta API capability. SOTA on OSWorld benchmark. Works on full desktop environments, not just web. | Only option that works on any desktop application (not just browsers). The agent sees the screen as a human would and can interact with any UI element. No special integration needed from the target application. | No extra charge — standard Claude API token pricing. [Docs](https://docs.anthropic.com/en/docs/computer-use) |
+| [OpenAI Operator (CUA)](https://openai.com/operator) | GPT-based browser automation agent — now integrated as "agent mode" in ChatGPT. | Launched by OpenAI as Operator, now integrated into ChatGPT as agent mode. Developer API available via computer-use-preview model. | Managed virtual browser environment — no infrastructure to run. Integrated into the ChatGPT ecosystem. Developer API enables programmatic browser automation. | ChatGPT Plus $20/mo (40 tasks) or Pro $200/mo (400 tasks). API: $2.50/$15.00 per M input/output tokens. [openai.com/operator](https://openai.com/operator) |
+| [Google Project Mariner](https://deepmind.google/) | Browser automation agent from DeepMind — handles 10 concurrent tasks. | Built by Google DeepMind. 83.5% WebVoyager benchmark score. Handles 10 concurrent tasks. Developer API coming via Gemini API/Vertex AI but not yet priced separately. | High benchmark scores. Concurrent task handling. Deep integration with Google's AI ecosystem. Developer API forthcoming. | Bundled with Google AI Ultra at $249.99/mo (US only). Developer API pricing TBD. [deepmind.google](https://deepmind.google/) |
 
 ### Code Execution
 
-#### [E2B](https://e2b.dev/)
-> Sandboxed code execution via Firecracker microVMs — hardware-level isolation with ~125ms cold start.
-
-**Story:** Founded 2023 in Prague by Vasek Mlejnsky and Tomas Valenta. Raised $21M Series A (July 2025, Insight Partners). 88% of Fortune 100 use it. Open source.
-
-**Why agents use it:** Hardware-level isolation via Firecracker microVMs — the gold standard for sandboxed execution. Agents run untrusted code without risk to production environments. Ephemeral by design (max 24hr sessions). Broad framework support.
-
-**Pricing:** Free ($100 credits) → Pro $150/mo + usage ($0.000014/s per vCPU). [Pricing](https://e2b.dev/pricing)
-
----
-
-#### [Daytona](https://www.daytona.io/)
-> Stateful sandboxed workspaces with sub-90ms cold start and persistent snapshotting.
-
-**Story:** Founded 2023 by Ivan Burazin (ex-Infobip). Raised $31M total ($24M Series A, February 2026, FirstMark Capital). Pure pay-as-you-go model — no base subscription.
-
-**Why agents use it:** Persistent state across sessions — agents can snapshot and resume workspaces, unlike E2B's ephemeral model. Same per-second rates as E2B but no $150/mo base fee. Best for agents needing stateful, long-running development environments.
-
-**Pricing:** Pay-as-you-go ($0.0000140/s per vCPU), $200 free credits at signup. No monthly minimum. [Pricing](https://www.daytona.io/pricing)
-
----
-
-#### [Modal](https://modal.com/)
-> Serverless compute platform with GPU support (T4 through B200) — Python-native with decorator-based infrastructure.
-
-**Story:** Founded 2021 by Erik Bernhardsson (ex-Spotify, built Luigi). Raised $111M through Series B (Lux Capital), valued at $1.1B. ~$50M ARR. In talks for $2.5B round.
-
-**Why agents use it:** The only sandbox option with GPU support — required for agents running ML models, image generation, or fine-tuning. Python-native with decorator-based infrastructure (`@app.function(gpu="A100")`). Auto-scales to zero when idle.
-
-**Pricing:** Starter free ($30/mo credits) → Team $250/mo + compute. GPU pricing varies by type. [Pricing](https://modal.com/pricing)
-
----
+| Tool | Description | Story | Why Agents Use It | Pricing |
+|------|-------------|-------|-------------------|---------|
+| [E2B](https://e2b.dev/) | Sandboxed code execution via Firecracker microVMs — hardware-level isolation with ~125ms cold start. | Founded 2023 in Prague by Vasek Mlejnsky and Tomas Valenta. Raised $21M Series A (July 2025, Insight Partners). 88% of Fortune 100 use it. Open source. | Hardware-level isolation via Firecracker microVMs — the gold standard for sandboxed execution. Agents run untrusted code without risk to production environments. Ephemeral by design (max 24hr sessions). Broad framework support. | Free ($100 credits) → Pro $150/mo + usage ($0.000014/s per vCPU). [Pricing](https://e2b.dev/pricing) |
+| [Daytona](https://www.daytona.io/) | Stateful sandboxed workspaces with sub-90ms cold start and persistent snapshotting. | Founded 2023 by Ivan Burazin (ex-Infobip). Raised $31M total ($24M Series A, February 2026, FirstMark Capital). Pure pay-as-you-go model — no base subscription. | Persistent state across sessions — agents can snapshot and resume workspaces, unlike E2B's ephemeral model. Same per-second rates as E2B but no $150/mo base fee. Best for agents needing stateful, long-running development environments. | Pay-as-you-go ($0.0000140/s per vCPU), $200 free credits at signup. No monthly minimum. [Pricing](https://www.daytona.io/pricing) |
+| [Modal](https://modal.com/) | Serverless compute platform with GPU support (T4 through B200) — Python-native with decorator-based infrastructure. | Founded 2021 by Erik Bernhardsson (ex-Spotify, built Luigi). Raised $111M through Series B (Lux Capital), valued at $1.1B. ~$50M ARR. In talks for $2.5B round. | The only sandbox option with GPU support — required for agents running ML models, image generation, or fine-tuning. Python-native with decorator-based infrastructure (`@app.function(gpu="A100")`). Auto-scales to zero when idle. | Starter free ($30/mo credits) → Team $250/mo + compute. GPU pricing varies by type. [Pricing](https://modal.com/pricing) |
 
 ### Communication
 
-#### [Resend](https://resend.com/)
-> Modern developer-first email API with first-class AI agent support — MCP server, 56+ tools, React Email.
-
-**Story:** Founded 2022 by Zeno Rocha. YC W23. Raised $21.5M total (a16z participated). Built React Email (open-source email components) alongside the API.
-
-**Why agents use it:** Best agent support in the email category — ships an MCP server with 56+ tools and direct integration with agent frameworks. React Email lets agents compose rich HTML emails programmatically. Modern DX compared to legacy providers.
-
-**Pricing:** Free (3K emails/mo, 100/day) → Pro $20/mo (50K emails) → Enterprise custom. [Pricing](https://resend.com/pricing)
-
----
-
-#### [SendGrid](https://sendgrid.com/)
-> Enterprise-grade email delivery at massive scale — battle-tested deliverability infrastructure.
-
-**Story:** Founded 2009. IPO'd 2017. Acquired by Twilio for ~$3B in 2019. The industry standard for transactional and marketing email at scale.
-
-**Why agents use it:** Battle-tested deliverability at massive scale. Well-known API that LLMs understand from training data. However, fundamentally built for humans — inbound email is stateless with no threading, which limits autonomous agent use.
-
-**Pricing:** Free (100 emails/day) → Essentials from $19.95/mo → Pro from $89.95/mo → Premier custom. [Pricing](https://sendgrid.com/en-us/pricing)
-
----
-
-#### [Slack Agentforce](https://slack.com/)
-> Salesforce AI agents deployed inside Slack — @mention agents in channels and DMs with CRM data access.
-
-**Story:** Slack acquired by Salesforce for $27.7B (2021). Agentforce 2.0 went GA January 2026. Agents can be @mentioned in channels/DMs with full CRM data access.
-
-**Why agents use it:** Native CRM integration — agents have full access to Salesforce data within Slack conversations. Powerful for enterprise teams already in the Salesforce ecosystem. But expensive and ecosystem-locked.
-
-**Pricing:** Slack $7.25-$12.50/user/mo + Agentforce add-on $125/user/mo (or $2/conversation for customer-facing). [Pricing](https://slack.com/pricing)
-
----
-
-#### Gmail MCP / Slack MCP / Discord MCP
-> MCP server wrappers for existing communication APIs — read/send messages, manage channels and labels.
-
-**Story:** Community-built MCP servers wrapping existing APIs. Part of the broader MCP ecosystem (10K+ active servers).
-
-**Why agents use it:** Standardized MCP interface for communication tools. Agents can read/send emails, manage Slack channels, and interact with Discord — all through the same MCP protocol.
-
-**Pricing:** Free (open source). Underlying service costs apply (Gmail/Slack/Discord pricing).
-
----
+| Tool | Description | Story | Why Agents Use It | Pricing |
+|------|-------------|-------|-------------------|---------|
+| [Resend](https://resend.com/) | Modern developer-first email API with first-class AI agent support — MCP server, 56+ tools, React Email. | Founded 2022 by Zeno Rocha. YC W23. Raised $21.5M total (a16z participated). Built React Email (open-source email components) alongside the API. | Best agent support in the email category — ships an MCP server with 56+ tools and direct integration with agent frameworks. React Email lets agents compose rich HTML emails programmatically. Modern DX compared to legacy providers. | Free (3K emails/mo, 100/day) → Pro $20/mo (50K emails) → Enterprise custom. [Pricing](https://resend.com/pricing) |
+| [SendGrid](https://sendgrid.com/) | Enterprise-grade email delivery at massive scale — battle-tested deliverability infrastructure. | Founded 2009. IPO'd 2017. Acquired by Twilio for ~$3B in 2019. The industry standard for transactional and marketing email at scale. | Battle-tested deliverability at massive scale. Well-known API that LLMs understand from training data. However, fundamentally built for humans — inbound email is stateless with no threading, which limits autonomous agent use. | Free (100 emails/day) → Essentials from $19.95/mo → Pro from $89.95/mo → Premier custom. [Pricing](https://sendgrid.com/en-us/pricing) |
+| [Slack Agentforce](https://slack.com/) | Salesforce AI agents deployed inside Slack — @mention agents in channels and DMs with CRM data access. | Slack acquired by Salesforce for $27.7B (2021). Agentforce 2.0 went GA January 2026. Agents can be @mentioned in channels/DMs with full CRM data access. | Native CRM integration — agents have full access to Salesforce data within Slack conversations. Powerful for enterprise teams already in the Salesforce ecosystem. But expensive and ecosystem-locked. | Slack $7.25-$12.50/user/mo + Agentforce add-on $125/user/mo (or $2/conversation for customer-facing). [Pricing](https://slack.com/pricing) |
+| Gmail MCP / Slack MCP / Discord MCP | MCP server wrappers for existing communication APIs — read/send messages, manage channels and labels. | Community-built MCP servers wrapping existing APIs. Part of the broader MCP ecosystem (10K+ active servers). | Standardized MCP interface for communication tools. Agents can read/send emails, manage Slack channels, and interact with Discord — all through the same MCP protocol. | Free (open source). Underlying service costs apply (Gmail/Slack/Discord pricing). |
 
 ### File Storage
 
-#### [Fast.io](https://fast.io/)
-> Agent-specific cloud storage — purpose-built for agent file workflows with MCP server and built-in RAG.
-
-**Story:** Spinoff from MediaFire. Bootstrapped. Purpose-built for agent file workflows with MCP server integration, built-in RAG capabilities, and human handoff features.
-
-**Why agents use it:** The only file storage designed specifically for agents — MCP server integration, built-in RAG for searching uploaded documents, and human handoff for approval workflows. Not just a dumb file bucket.
-
-**Pricing:** Free (50GB). Paid tiers for higher storage and features. [fast.io](https://fast.io/)
-
----
-
-#### S3 / GCS / Azure Blob
-> Standard cloud object storage — the default for any file storage need.
-
-**Pricing:** AWS S3 from $0.023/GB/mo. Google Cloud Storage from $0.020/GB/mo. Azure Blob from $0.018/GB/mo. All have free tiers.
-
----
+| Tool | Description | Story | Why Agents Use It | Pricing |
+|------|-------------|-------|-------------------|---------|
+| [Fast.io](https://fast.io/) | Agent-specific cloud storage — purpose-built for agent file workflows with MCP server and built-in RAG. | Spinoff from MediaFire. Bootstrapped. Purpose-built for agent file workflows with MCP server integration, built-in RAG capabilities, and human handoff features. | The only file storage designed specifically for agents — MCP server integration, built-in RAG for searching uploaded documents, and human handoff for approval workflows. Not just a dumb file bucket. | Free (50GB). Paid tiers for higher storage and features. [fast.io](https://fast.io/) |
+| S3 / GCS / Azure Blob | Standard cloud object storage — the default for any file storage need. | — | — | AWS S3 from $0.023/GB/mo. Google Cloud Storage from $0.020/GB/mo. Azure Blob from $0.018/GB/mo. All have free tiers. |
 
 ### Integrations
 
-#### [Composio](https://composio.dev/)
-> Managed auth and pre-built tools for 140+ apps — handles OAuth so agents can connect to SaaS services.
-
-**Story:** Founded 2023. Raised $29M. 27K GitHub stars. Manages the hardest problem in agent integrations: OAuth flows for 140+ apps so agents can act on behalf of users.
-
-**Why agents use it:** Agents need to connect to dozens of SaaS tools. Composio handles OAuth, token refresh, and provides pre-built tool definitions for each service. Drop-in integration with LangChain, CrewAI, and other frameworks.
-
-**Pricing:** Free (20K calls/mo) → Starter $29/mo → Growth custom. [Pricing](https://composio.dev/pricing)
-
----
-
-#### [Pipedream](https://pipedream.com/)
-> Workflow automation platform with 3,000+ app connectors — the broadest connector library available.
-
-**Story:** Founded 2019. Raised $22.4M. Acquired by Workday in November 2025. 3,000+ app connectors — the broadest library available. Independent future uncertain post-acquisition.
-
-**Why agents use it:** Broadest connector library (3,000+ apps). Event-driven workflows that agents can trigger programmatically. But the Workday acquisition introduces uncertainty about the product's direction.
-
-**Pricing:** Free (100 credits/mo) → Starter $45/mo → Growth custom. [Pricing](https://pipedream.com/pricing)
-
----
+| Tool | Description | Story | Why Agents Use It | Pricing |
+|------|-------------|-------|-------------------|---------|
+| [Composio](https://composio.dev/) | Managed auth and pre-built tools for 140+ apps — handles OAuth so agents can connect to SaaS services. | Founded 2023. Raised $29M. 27K GitHub stars. Manages the hardest problem in agent integrations: OAuth flows for 140+ apps so agents can act on behalf of users. | Agents need to connect to dozens of SaaS tools. Composio handles OAuth, token refresh, and provides pre-built tool definitions for each service. Drop-in integration with LangChain, CrewAI, and other frameworks. | Free (20K calls/mo) → Starter $29/mo → Growth custom. [Pricing](https://composio.dev/pricing) |
+| [Pipedream](https://pipedream.com/) | Workflow automation platform with 3,000+ app connectors — the broadest connector library available. | Founded 2019. Raised $22.4M. Acquired by Workday in November 2025. 3,000+ app connectors — the broadest library available. Independent future uncertain post-acquisition. | Broadest connector library (3,000+ apps). Event-driven workflows that agents can trigger programmatically. But the Workday acquisition introduces uncertainty about the product's direction. | Free (100 credits/mo) → Starter $45/mo → Growth custom. [Pricing](https://pipedream.com/pricing) |
 
 ### Workflows
 
-#### [Temporal](https://temporal.io/)
-> Open-source workflow orchestration — durable execution for long-running, fault-tolerant processes.
-
-**Story:** Created by the ex-Uber team that built Cadence (the internal workflow engine). Raised $650M total, valued at $5B. Multi-language support (Go, Java, Python, TypeScript, .NET). 99.99% SLA on cloud.
-
-**Why agents use it:** The enterprise heavyweight for durable execution. Agents running multi-step workflows need fault tolerance — if a step fails mid-execution, Temporal replays from the last checkpoint. Battle-tested at Uber scale. Self-hostable for full control.
-
-**Pricing:** Self-hosted free (open source) → Cloud from $100/mo. [Pricing](https://temporal.io/pricing)
-
----
-
-#### [Inngest](https://www.inngest.com/)
-> Serverless durable functions — replaces queues and state management with a developer-friendly abstraction.
-
-**Story:** Founded 2021. Raised $34M total. Strong Vercel ecosystem integration. Built a purpose-built AgentKit framework for AI agent workflows.
-
-**Why agents use it:** Serverless-native — agents define functions, Inngest handles queuing, retries, and state. Purpose-built AgentKit provides agent-specific primitives (tool calls, human-in-the-loop, step functions). Deep Vercel/Next.js integration.
-
-**Pricing:** Free tier → Pro from $75/mo. [Pricing](https://www.inngest.com/pricing)
-
----
-
-#### [Trigger.dev](https://trigger.dev/)
-> Background jobs with retries, human-in-the-loop, and no timeouts — built for AI agent workloads.
-
-**Story:** YC W23. Raised $19M total. TypeScript-focused with the simplest developer experience in the category. No execution timeouts. Elastic scaling.
-
-**Why agents use it:** No timeouts — critical for agents running long tasks (web scraping, multi-step research). Built-in human-in-the-loop for approval flows. TypeScript-first DX. Cheapest entry point in the workflow category.
-
-**Pricing:** Free tier → Starter from $10/mo. [Pricing](https://trigger.dev/pricing)
+| Tool | Description | Story | Why Agents Use It | Pricing |
+|------|-------------|-------|-------------------|---------|
+| [Temporal](https://temporal.io/) | Open-source workflow orchestration — durable execution for long-running, fault-tolerant processes. | Created by the ex-Uber team that built Cadence (the internal workflow engine). Raised $650M total, valued at $5B. Multi-language support (Go, Java, Python, TypeScript, .NET). 99.99% SLA on cloud. | The enterprise heavyweight for durable execution. Agents running multi-step workflows need fault tolerance — if a step fails mid-execution, Temporal replays from the last checkpoint. Battle-tested at Uber scale. Self-hostable for full control. | Self-hosted free (open source) → Cloud from $100/mo. [Pricing](https://temporal.io/pricing) |
+| [Inngest](https://www.inngest.com/) | Serverless durable functions — replaces queues and state management with a developer-friendly abstraction. | Founded 2021. Raised $34M total. Strong Vercel ecosystem integration. Built a purpose-built AgentKit framework for AI agent workflows. | Serverless-native — agents define functions, Inngest handles queuing, retries, and state. Purpose-built AgentKit provides agent-specific primitives (tool calls, human-in-the-loop, step functions). Deep Vercel/Next.js integration. | Free tier → Pro from $75/mo. [Pricing](https://www.inngest.com/pricing) |
+| [Trigger.dev](https://trigger.dev/) | Background jobs with retries, human-in-the-loop, and no timeouts — built for AI agent workloads. | YC W23. Raised $19M total. TypeScript-focused with the simplest developer experience in the category. No execution timeouts. Elastic scaling. | No timeouts — critical for agents running long tasks (web scraping, multi-step research). Built-in human-in-the-loop for approval flows. TypeScript-first DX. Cheapest entry point in the workflow category. | Free tier → Starter from $10/mo. [Pricing](https://trigger.dev/pricing) |
 
 ---
 
@@ -446,58 +129,13 @@ When you give an agent a goal, it needs to touch the real world. That means infr
 
 ### Payments
 
-#### [Stripe Agent Toolkit](https://docs.stripe.com/agents)
-> SDK for AI agents to interact with Stripe — create payment links, issue cards, process transactions.
-
-**Story:** Stripe founded 2010 by Patrick and John Collison. Raised ~$9.8B total; valued at ~$91.5-159B. Early investors: Elon Musk, Peter Thiel, Sequoia, a16z. Agent Toolkit launched November 2024. In 2025, launched Agentic Commerce Suite with Shared Payment Tokens (SPTs). OpenAI integrated it for ChatGPT's Instant Checkout.
-
-**Why agents use it:** Shared Payment Tokens — purpose-built credential for agent-initiated payments, agents never see raw card numbers. Stripe Radar adapted for AI traffic patterns. Single integration makes merchants accessible to all agents. Framework-agnostic (OpenAI, LangChain, CrewAI, Vercel AI).
-
-**Pricing:** 2.9% + $0.30 per US card transaction. International: 3.1% + $0.30. Issuing: $0.10/virtual card. No setup or monthly fees. [Pricing](https://stripe.com/pricing)
-
----
-
-#### [Marqeta](https://www.marqeta.com/)
-> API-first card issuing platform with real-time transaction controls and MCP server for AI agents.
-
-**Story:** Founded 2010 by Jason Gardner (originally SimplyTapp). Raised ~$528M privately. IPO'd on NASDAQ June 2021 at ~$15B valuation. Powers card programs for Square, DoorDash, Klarna, Affirm. Launched MCP server for AI agent workflows.
-
-**Why agents use it:** Just-in-Time (JIT) funding — cards funded in real-time at exact transaction amounts, no pre-funding required. MCP server exposes card issuing, spend controls, and dispute management as agent tools. Enterprise-grade for production-scale deployments.
-
-**Pricing:** Custom (~0.5-2% of transaction volume). Monthly program maintenance fees. Contact sales. [marqeta.com](https://www.marqeta.com/)
-
----
-
-#### [Lithic](https://www.lithic.com/)
-> Developer-first card issuing API — programmable virtual cards with per-card authorization rules.
-
-**Story:** Founded 2014 by Bo Jiang, Jason Kruse, and David Nichols as Privacy.com. Rebranded to Lithic May 2021. Raised $110M total ($60M Series C led by Stripes at $800M valuation). Investors include Mastercard, Bessemer, Spark Capital.
-
-**Why agents use it:** Per-card authorization rules — each virtual card can have unique merchant restrictions, spending limits, and time constraints. Auth Stream Access (ASA) gives programmatic, real-time control over every authorization. Cards lock to exact amounts, eliminating overdraft risk from autonomous agents.
-
-**Pricing:** ~$0.05 per card. No monthly or setup fees. Free sandbox. Contact sales for details. [lithic.com](https://www.lithic.com/)
-
----
-
-#### [Mastercard Agent Pay](https://www.mastercard.com/)
-> Network-level framework for verified AI agents to initiate payments using cryptographically secured "Agentic Tokens."
-
-**Story:** Mastercard founded 1966. Public company (NYSE: MA). Agent Pay unveiled April 2025 — first major card network agentic payments program. "Know Your Agent" KYC process for registering AI agents. All US cardholders enabled September 2025. Partners: OpenAI, PayPal, Citi, US Bank. First live EU agent payment completed March 2026 (Santander).
-
-**Why agents use it:** Network-level trust — agents are registered through KYC and uniquely identified on the Mastercard network. Agentic Tokens (built on Apple Pay/Google Pay tokenization infrastructure) mean agents never touch real card numbers. Works at millions of existing merchants with no merchant integration needed.
-
-**Pricing:** Standard Mastercard interchange rates (1.5-2.6% depending on card type). No separate Agent Pay pricing. [Interchange rates](https://www.mastercard.com/us/en/business/support/merchant-interchange-rates.html)
-
----
-
-#### [agent-cards](https://agentcard.sh)
-> CLI and MCP server for prepaid, single-use virtual debit cards for AI agents.
-
-**Story:** Built by Karen (karen@agentcard.sh). Currently in beta with 1,000 user slots. Bootstrapped. Designed specifically for the Claude/Cursor/MCP ecosystem. CLI, REST API, Chrome Extension, and MCP server.
-
-**Why agents use it:** Purpose-built for MCP — one config block to connect to Claude Code, Claude Desktop, or Cursor. Single-use cards with hard limits: zero overdraft risk. Human-in-the-loop by default — agent proposes, human approves. Five-minute setup via `npx agent-cards signup`.
-
-**Pricing:** Free during beta. Pay only what you load onto cards. Post-beta pricing TBD. [agentcard.sh](https://agentcard.sh)
+| Tool | Description | Story | Why Agents Use It | Pricing |
+|------|-------------|-------|-------------------|---------|
+| [Stripe Agent Toolkit](https://docs.stripe.com/agents) | SDK for AI agents to interact with Stripe — create payment links, issue cards, process transactions. | Stripe founded 2010 by Patrick and John Collison. Raised ~$9.8B total; valued at ~$91.5-159B. Early investors: Elon Musk, Peter Thiel, Sequoia, a16z. Agent Toolkit launched November 2024. In 2025, launched Agentic Commerce Suite with Shared Payment Tokens (SPTs). OpenAI integrated it for ChatGPT's Instant Checkout. | Shared Payment Tokens — purpose-built credential for agent-initiated payments, agents never see raw card numbers. Stripe Radar adapted for AI traffic patterns. Single integration makes merchants accessible to all agents. Framework-agnostic (OpenAI, LangChain, CrewAI, Vercel AI). | 2.9% + $0.30 per US card transaction. International: 3.1% + $0.30. Issuing: $0.10/virtual card. No setup or monthly fees. [Pricing](https://stripe.com/pricing) |
+| [Marqeta](https://www.marqeta.com/) | API-first card issuing platform with real-time transaction controls and MCP server for AI agents. | Founded 2010 by Jason Gardner (originally SimplyTapp). Raised ~$528M privately. IPO'd on NASDAQ June 2021 at ~$15B valuation. Powers card programs for Square, DoorDash, Klarna, Affirm. Launched MCP server for AI agent workflows. | Just-in-Time (JIT) funding — cards funded in real-time at exact transaction amounts, no pre-funding required. MCP server exposes card issuing, spend controls, and dispute management as agent tools. Enterprise-grade for production-scale deployments. | Custom (~0.5-2% of transaction volume). Monthly program maintenance fees. Contact sales. [marqeta.com](https://www.marqeta.com/) |
+| [Lithic](https://www.lithic.com/) | Developer-first card issuing API — programmable virtual cards with per-card authorization rules. | Founded 2014 by Bo Jiang, Jason Kruse, and David Nichols as Privacy.com. Rebranded to Lithic May 2021. Raised $110M total ($60M Series C led by Stripes at $800M valuation). Investors include Mastercard, Bessemer, Spark Capital. | Per-card authorization rules — each virtual card can have unique merchant restrictions, spending limits, and time constraints. Auth Stream Access (ASA) gives programmatic, real-time control over every authorization. Cards lock to exact amounts, eliminating overdraft risk from autonomous agents. | ~$0.05 per card. No monthly or setup fees. Free sandbox. Contact sales for details. [lithic.com](https://www.lithic.com/) |
+| [Mastercard Agent Pay](https://www.mastercard.com/) | Network-level framework for verified AI agents to initiate payments using cryptographically secured "Agentic Tokens." | Mastercard founded 1966. Public company (NYSE: MA). Agent Pay unveiled April 2025 — first major card network agentic payments program. "Know Your Agent" KYC process for registering AI agents. All US cardholders enabled September 2025. Partners: OpenAI, PayPal, Citi, US Bank. First live EU agent payment completed March 2026 (Santander). | Network-level trust — agents are registered through KYC and uniquely identified on the Mastercard network. Agentic Tokens (built on Apple Pay/Google Pay tokenization infrastructure) mean agents never touch real card numbers. Works at millions of existing merchants with no merchant integration needed. | Standard Mastercard interchange rates (1.5-2.6% depending on card type). No separate Agent Pay pricing. [Interchange rates](https://www.mastercard.com/us/en/business/support/merchant-interchange-rates.html) |
+| [agent-cards](https://agentcard.sh) | CLI and MCP server for prepaid, single-use virtual debit cards for AI agents. | Built by Karen (karen@agentcard.sh). Currently in beta with 1,000 user slots. Bootstrapped. Designed specifically for the Claude/Cursor/MCP ecosystem. CLI, REST API, Chrome Extension, and MCP server. | Purpose-built for MCP — one config block to connect to Claude Code, Claude Desktop, or Cursor. Single-use cards with hard limits: zero overdraft risk. Human-in-the-loop by default — agent proposes, human approves. Five-minute setup via `npx agent-cards signup`. | Free during beta. Pay only what you load onto cards. Post-beta pricing TBD. [agentcard.sh](https://agentcard.sh) |
 
 ---
 
@@ -507,114 +145,25 @@ When you give an agent a goal, it needs to touch the real world. That means infr
 
 ### Authentication
 
-#### [WorkOS](https://workos.com/)
-> Developer platform for authentication, SSO, directory sync, and fine-grained authorization — making apps enterprise-ready.
-
-**Story:** Founded 2019 by Michael Grinich in San Francisco. Raised $195M+ total ($100M Series C at $2B valuation, led by Meritech Capital and Sapphire Ventures). $30M ARR, 1,000+ paying customers. Partnership with Cloudflare for MCP auth.
-
-**Why agents use it:** AuthKit supports OAuth 2.1 as a compatible authorization server for MCP apps. Machine-to-Machine (M2M) OAuth provides short-lived, scoped tokens for agent-to-service calls. RBAC assigns fine-grained roles so agents operate under least-privilege. Co-chairs the OpenID working group for AI identity.
-
-**Pricing:** AuthKit first 1M MAUs free, then $2,500/mo per 1M. SSO $125/connection (volume discounts). Audit Logs $125/SIEM connection/mo. [Pricing](https://workos.com/pricing)
-
----
-
-#### [Auth0](https://auth0.com/)
-> Identity platform with a dedicated "Auth0 for AI Agents" product — Token Vault, FGA for RAG, and human-in-the-loop via CIBA.
-
-**Story:** Founded 2013 by Eugenio Pace and Matias Woloski. Raised $330M+ total. Acquired by Okta for $6.5B (May 2021). "Auth0 for AI Agents" launched September 2025 (GA November 2025). Agent Skills released March 2026.
-
-**Why agents use it:** Token Vault manages OAuth flows with 30+ pre-integrated apps, handling the full token lifecycle automatically. Fine-Grained Authorization for RAG ensures agents only access content users are authorized to see. Human-in-the-loop via CIBA — agents send approval requests for critical actions.
-
-**Pricing:** Free (25K MAUs) → Essentials from $35/mo → Professional from $240/mo → Enterprise custom. [Pricing](https://auth0.com/pricing)
-
----
-
-#### [Nango](https://nango.dev/)
-> Open-source integration platform — managed OAuth, token refresh, and unified API for 700+ third-party APIs.
-
-**Story:** Founded 2022 by Bastien Beurier (ex-Uber, 2x YC founder) and Robin Guldener (ex-Avrios). YC W23. Raised $2M seed from strategic investors including Calendly, Cloudflare, and Retool. Grew from 40 APIs to 700+ with 600+ pre-built integrations.
-
-**Why agents use it:** Manages the full OAuth lifecycle — flow, token storage, automatic refresh, broken-credential detection — eliminating the #1 failure point for agent API calls. Per-tenant token isolation for multi-user agent products. API translation layer between abstract agent intent and API-specific execution.
-
-**Pricing:** Free (10 connections, 100K requests) → Starter from $50/mo → Growth from $500/mo → Enterprise custom. [Pricing](https://nango.dev/pricing)
-
----
-
-#### [Arcade](https://arcade.dev/)
-> MCP runtime for secure agent authorization — pre-built agent tools with per-user OAuth for Gmail, Slack, GitHub, Salesforce, etc.
-
-**Story:** Founded 2024 by Alex Salazar (ex-Okta) and Sam Partee (ex-Redis). Raised $12M seed (March 2025, led by Laude Ventures). Co-developed URL elicitation for MCP with Anthropic (November 2025). Pivoted from diagnostic agent to tooling layer.
-
-**Why agents use it:** Agent-first auth — not retrofitted from human-user systems. Per-user credential isolation with tool-level permission scoping. Just-in-time authorization: tokens requested only when needed, expire after use. Hundreds of pre-built agent tools for enterprise services.
-
-**Pricing:** Free (100 user challenges, 1K tool executions) → Growth $25/mo + usage → Enterprise custom. [Pricing](https://arcade.dev/pricing)
-
----
+| Tool | Description | Story | Why Agents Use It | Pricing |
+|------|-------------|-------|-------------------|---------|
+| [WorkOS](https://workos.com/) | Developer platform for authentication, SSO, directory sync, and fine-grained authorization — making apps enterprise-ready. | Founded 2019 by Michael Grinich in San Francisco. Raised $195M+ total ($100M Series C at $2B valuation, led by Meritech Capital and Sapphire Ventures). $30M ARR, 1,000+ paying customers. Partnership with Cloudflare for MCP auth. | AuthKit supports OAuth 2.1 as a compatible authorization server for MCP apps. Machine-to-Machine (M2M) OAuth provides short-lived, scoped tokens for agent-to-service calls. RBAC assigns fine-grained roles so agents operate under least-privilege. Co-chairs the OpenID working group for AI identity. | AuthKit first 1M MAUs free, then $2,500/mo per 1M. SSO $125/connection (volume discounts). Audit Logs $125/SIEM connection/mo. [Pricing](https://workos.com/pricing) |
+| [Auth0](https://auth0.com/) | Identity platform with a dedicated "Auth0 for AI Agents" product — Token Vault, FGA for RAG, and human-in-the-loop via CIBA. | Founded 2013 by Eugenio Pace and Matias Woloski. Raised $330M+ total. Acquired by Okta for $6.5B (May 2021). "Auth0 for AI Agents" launched September 2025 (GA November 2025). Agent Skills released March 2026. | Token Vault manages OAuth flows with 30+ pre-integrated apps, handling the full token lifecycle automatically. Fine-Grained Authorization for RAG ensures agents only access content users are authorized to see. Human-in-the-loop via CIBA — agents send approval requests for critical actions. | Free (25K MAUs) → Essentials from $35/mo → Professional from $240/mo → Enterprise custom. [Pricing](https://auth0.com/pricing) |
+| [Nango](https://nango.dev/) | Open-source integration platform — managed OAuth, token refresh, and unified API for 700+ third-party APIs. | Founded 2022 by Bastien Beurier (ex-Uber, 2x YC founder) and Robin Guldener (ex-Avrios). YC W23. Raised $2M seed from strategic investors including Calendly, Cloudflare, and Retool. Grew from 40 APIs to 700+ with 600+ pre-built integrations. | Manages the full OAuth lifecycle — flow, token storage, automatic refresh, broken-credential detection — eliminating the #1 failure point for agent API calls. Per-tenant token isolation for multi-user agent products. API translation layer between abstract agent intent and API-specific execution. | Free (10 connections, 100K requests) → Starter from $50/mo → Growth from $500/mo → Enterprise custom. [Pricing](https://nango.dev/pricing) |
+| [Arcade](https://arcade.dev/) | MCP runtime for secure agent authorization — pre-built agent tools with per-user OAuth for Gmail, Slack, GitHub, Salesforce, etc. | Founded 2024 by Alex Salazar (ex-Okta) and Sam Partee (ex-Redis). Raised $12M seed (March 2025, led by Laude Ventures). Co-developed URL elicitation for MCP with Anthropic (November 2025). Pivoted from diagnostic agent to tooling layer. | Agent-first auth — not retrofitted from human-user systems. Per-user credential isolation with tool-level permission scoping. Just-in-time authorization: tokens requested only when needed, expire after use. Hundreds of pre-built agent tools for enterprise services. | Free (100 user challenges, 1K tool executions) → Growth $25/mo + usage → Enterprise custom. [Pricing](https://arcade.dev/pricing) |
 
 ### Guardrails
 
-#### [NVIDIA NeMo Guardrails](https://github.com/NVIDIA/NeMo-Guardrails)
-> Open-source toolkit for programmable LLM safety — topic control, jailbreak prevention, PII detection, content safety.
-
-**Story:** Created by NVIDIA as part of the NeMo framework. First released April 2023. Research paper October 2023. NIM microservices released 2025 for GPU-accelerated inference. Integrations with LangGraph, LangChain, LlamaIndex.
-
-**Why agents use it:** Colang modeling language — a Python-like DSL for defining safety policies, more expressive than prompt engineering. Multi-layer guardrails covering input, dialog, retrieval, and output. NIM microservices add only ~0.5s latency with 50% better protection. Can guard agent reasoning traces, not just final outputs.
-
-**Pricing:** Free and open source (Apache 2.0). NIM microservices free for dev/testing; production pricing via NVIDIA AI Enterprise (contact NVIDIA). [GitHub](https://github.com/NVIDIA/NeMo-Guardrails)
-
----
-
-#### [Guardrails AI](https://www.guardrailsai.com/)
-> Open-source framework for validating LLM outputs — composable validators from the Guardrails Hub.
-
-**Story:** Founded 2023 by Shreya Rajpal (ex-Apple, Drive.ai) and Diego Oppenheimer (Algorithmia founder). Raised $7.5M seed (February 2024, led by Pear VC; angels include Ian Goodfellow from DeepMind, Logan Kilpatrick from OpenAI). Published the Guardrails Index — first benchmark comparing 24 guardrails across 6 risk categories.
-
-**Why agents use it:** Structured output enforcement — validates against Pydantic models and auto-corrects malformed responses, critical for agents feeding output into tool calls. Composable validators from the Hub (PII, toxicity, factual accuracy, prompt injection). Automatic retry with re-prompting on validation failure. LLM-agnostic via LiteLLM.
-
-**Pricing:** Free and open source (Apache 2.0). Guardrails Pro: usage-based (contact sales) — includes hosted infra, observability dashboards, SLA. [Pricing](https://www.guardrailsai.com/pricing)
-
----
+| Tool | Description | Story | Why Agents Use It | Pricing |
+|------|-------------|-------|-------------------|---------|
+| [NVIDIA NeMo Guardrails](https://github.com/NVIDIA/NeMo-Guardrails) | Open-source toolkit for programmable LLM safety — topic control, jailbreak prevention, PII detection, content safety. | Created by NVIDIA as part of the NeMo framework. First released April 2023. Research paper October 2023. NIM microservices released 2025 for GPU-accelerated inference. Integrations with LangGraph, LangChain, LlamaIndex. | Colang modeling language — a Python-like DSL for defining safety policies, more expressive than prompt engineering. Multi-layer guardrails covering input, dialog, retrieval, and output. NIM microservices add only ~0.5s latency with 50% better protection. Can guard agent reasoning traces, not just final outputs. | Free and open source (Apache 2.0). NIM microservices free for dev/testing; production pricing via NVIDIA AI Enterprise (contact NVIDIA). [GitHub](https://github.com/NVIDIA/NeMo-Guardrails) |
+| [Guardrails AI](https://www.guardrailsai.com/) | Open-source framework for validating LLM outputs — composable validators from the Guardrails Hub. | Founded 2023 by Shreya Rajpal (ex-Apple, Drive.ai) and Diego Oppenheimer (Algorithmia founder). Raised $7.5M seed (February 2024, led by Pear VC; angels include Ian Goodfellow from DeepMind, Logan Kilpatrick from OpenAI). Published the Guardrails Index — first benchmark comparing 24 guardrails across 6 risk categories. | Structured output enforcement — validates against Pydantic models and auto-corrects malformed responses, critical for agents feeding output into tool calls. Composable validators from the Hub (PII, toxicity, factual accuracy, prompt injection). Automatic retry with re-prompting on validation failure. LLM-agnostic via LiteLLM. | Free and open source (Apache 2.0). Guardrails Pro: usage-based (contact sales) — includes hosted infra, observability dashboards, SLA. [Pricing](https://www.guardrailsai.com/pricing) |
 
 ### Observability
 
-#### [Langfuse](https://langfuse.com/)
-> Open-source LLM observability — tracing, prompt management, evaluations. Acquired by ClickHouse.
-
-**Story:** Founded 2022 in Berlin by Max Deichmann, Clemens Rawert, Marc Klingen. YC W23. Raised $4.5M total ($4M seed from Lightspeed). Acquired by ClickHouse in January 2026 as part of ClickHouse's $400M Series D. 26M+ SDK installs.
-
-**Why agents use it:** Open source and self-hostable with no limitations. OpenTelemetry-native — supports the OTEL standard that frameworks like Pydantic AI and smolagents emit. Agent graph visualization traces full execution paths. Per-trace cost tracking for unpredictable agent spending.
-
-**Pricing:** Free (50K units/mo) → Core $29/mo (100K) → Pro $199/mo (SOC2, HIPAA) → Enterprise $2,499/mo. Self-hosting free with no limits. [Pricing](https://langfuse.com/pricing)
-
----
-
-#### [LangSmith](https://www.langchain.com/langsmith)
-> LangChain's observability and evaluation platform — structured tracing, automated evals, agent debugging.
-
-**Story:** Built by LangChain (founded October 2022 by Harrison Chase and Ankush Gola). LangSmith beta summer 2023. LangChain raised $180M+ total ($125M Series B at $1.25B valuation, October 2025, led by IVP). Estimated $12-16M ARR.
-
-**Why agents use it:** Step-by-step agent debugging — breaks each run into a timeline of LLM calls, tool invocations, and reasoning steps. Trajectory-based evaluation scores intermediate decisions, not just final outputs. Production-to-test-case loop turns traces into test cases for iterative improvement.
-
-**Pricing:** Free (1 seat, 5K traces/mo) → Plus $39/seat/mo (10K traces) → Enterprise custom (hybrid/self-hosted, SSO). [Pricing](https://www.langchain.com/pricing)
-
----
-
-#### [Arize](https://arize.com/)
-> AI observability spanning traditional ML and LLM/agent workloads. Phoenix is the open-source version.
-
-**Story:** Founded January 2020 by Jason Lopatecki (ex-TubeMogul co-founder) and Aparna Dhinakaran (ex-Uber ML). Raised $131M total ($70M Series C, February 2025, led by Adams Street Partners; strategic from Microsoft M12, Datadog, PagerDuty). Pre-dates the GenAI wave — expanded from classical ML monitoring to LLM/agent observability.
-
-**Why agents use it:** Multi-agent tracing — visualizes how agents delegate tasks and use tools in real-time. Multimodal support aligns transcriptions, image embeddings, and tool calls in unified traces. Agent-specific eval templates for tool calling accuracy, path convergence, and planning quality. Production ML heritage means mature alerting and drift detection.
-
-**Pricing:** Phoenix free (self-hosted) → AX Free (25K spans/mo) → AX Pro $50/mo (50K spans) → AX Enterprise custom. [Pricing](https://arize.com/pricing)
-
----
-
-#### [Braintrust](https://www.braintrust.dev/)
-> Evals-first AI observability with Brainstore — a purpose-built database for querying massive AI trace data.
-
-**Story:** Founded 2023 by Ankur Goyal (previously founded Impira, acquired by Figma). Raised $121M total ($80M Series B, February 2026, led by ICONIQ at $800M valuation; a16z, Greylock). Customers: Notion, Replit, Cloudflare, Ramp, Dropbox.
-
-**Why agents use it:** Brainstore — purpose-built database delivering sub-second queries across terabytes of trace data, claimed 80% faster than competitors. Evals-first philosophy: production AI starts with evals during development, especially critical for agents where intermediate reasoning compounds errors. Full-text search across all production traces. Most generous free tier (1M spans).
-
-**Pricing:** Free (1M spans, 1GB) → Pro $249/mo (unlimited spans, 5GB) → Enterprise custom. [Pricing](https://www.braintrust.dev/pricing)
+| Tool | Description | Story | Why Agents Use It | Pricing |
+|------|-------------|-------|-------------------|---------|
+| [Langfuse](https://langfuse.com/) | Open-source LLM observability — tracing, prompt management, evaluations. Acquired by ClickHouse. | Founded 2022 in Berlin by Max Deichmann, Clemens Rawert, Marc Klingen. YC W23. Raised $4.5M total ($4M seed from Lightspeed). Acquired by ClickHouse in January 2026 as part of ClickHouse's $400M Series D. 26M+ SDK installs. | Open source and self-hostable with no limitations. OpenTelemetry-native — supports the OTEL standard that frameworks like Pydantic AI and smolagents emit. Agent graph visualization traces full execution paths. Per-trace cost tracking for unpredictable agent spending. | Free (50K units/mo) → Core $29/mo (100K) → Pro $199/mo (SOC2, HIPAA) → Enterprise $2,499/mo. Self-hosting free with no limits. [Pricing](https://langfuse.com/pricing) |
+| [LangSmith](https://www.langchain.com/langsmith) | LangChain's observability and evaluation platform — structured tracing, automated evals, agent debugging. | Built by LangChain (founded October 2022 by Harrison Chase and Ankush Gola). LangSmith beta summer 2023. LangChain raised $180M+ total ($125M Series B at $1.25B valuation, October 2025, led by IVP). Estimated $12-16M ARR. | Step-by-step agent debugging — breaks each run into a timeline of LLM calls, tool invocations, and reasoning steps. Trajectory-based evaluation scores intermediate decisions, not just final outputs. Production-to-test-case loop turns traces into test cases for iterative improvement. | Free (1 seat, 5K traces/mo) → Plus $39/seat/mo (10K traces) → Enterprise custom (hybrid/self-hosted, SSO). [Pricing](https://www.langchain.com/pricing) |
+| [Arize](https://arize.com/) | AI observability spanning traditional ML and LLM/agent workloads. Phoenix is the open-source version. | Founded January 2020 by Jason Lopatecki (ex-TubeMogul co-founder) and Aparna Dhinakaran (ex-Uber ML). Raised $131M total ($70M Series C, February 2025, led by Adams Street Partners; strategic from Microsoft M12, Datadog, PagerDuty). Pre-dates the GenAI wave — expanded from classical ML monitoring to LLM/agent observability. | Multi-agent tracing — visualizes how agents delegate tasks and use tools in real-time. Multimodal support aligns transcriptions, image embeddings, and tool calls in unified traces. Agent-specific eval templates for tool calling accuracy, path convergence, and planning quality. Production ML heritage means mature alerting and drift detection. | Phoenix free (self-hosted) → AX Free (25K spans/mo) → AX Pro $50/mo (50K spans) → AX Enterprise custom. [Pricing](https://arize.com/pricing) |
+| [Braintrust](https://www.braintrust.dev/) | Evals-first AI observability with Brainstore — a purpose-built database for querying massive AI trace data. | Founded 2023 by Ankur Goyal (previously founded Impira, acquired by Figma). Raised $121M total ($80M Series B, February 2026, led by ICONIQ at $800M valuation; a16z, Greylock). Customers: Notion, Replit, Cloudflare, Ramp, Dropbox. | Brainstore — purpose-built database delivering sub-second queries across terabytes of trace data, claimed 80% faster than competitors. Evals-first philosophy: production AI starts with evals during development, especially critical for agents where intermediate reasoning compounds errors. Full-text search across all production traces. Most generous free tier (1M spans). | Free (1M spans, 1GB) → Pro $249/mo (unlimited spans, 5GB) → Enterprise custom. [Pricing](https://www.braintrust.dev/pricing) |
